@@ -1,5 +1,4 @@
-import { Star, ShoppingCart, ArrowLeft } from 'lucide-react';
-import { useCart } from '../contexts/CartContext';
+import { Star, ArrowLeft } from 'lucide-react';
 
 interface Book {
   id: number;
@@ -18,16 +17,6 @@ interface ProductDetailsProps {
 }
 
 export default function ProductDetails({ book, onBack }: ProductDetailsProps) {
-  const { addItem } = useCart();
-
-  const handleAddToCart = () => {
-    addItem({
-      id: book.id,
-      title: book.title,
-      price: book.price,
-      image: book.image,
-    });
-  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -82,18 +71,10 @@ export default function ProductDetails({ book, onBack }: ProductDetailsProps) {
                   </span>
                 </div>
 
-                <button
-                  onClick={handleAddToCart}
-                  className="w-full bg-amber-700 hover:bg-amber-800 text-white py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-colors"
-                >
-                  <ShoppingCart className="w-6 h-6" />
-                  Add to Cart
-                </button>
-
-                <div className="mt-6 space-y-3 text-sm text-gray-600">
-                  <p>✓ Free shipping on orders over $50</p>
-                  <p>✓ 30-day money-back guarantee</p>
-                  <p>✓ Secure checkout</p>
+                <div className="space-y-3 text-sm text-gray-600">
+                  <p>Available for order</p>
+                  <p>Category: {book.category}</p>
+                  <p>Author: {book.author}</p>
                 </div>
               </div>
             </div>

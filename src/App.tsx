@@ -7,8 +7,6 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
 import ProductDetails from './components/ProductDetails';
-import ShoppingCart from './components/ShoppingCart';
-import { CartProvider } from './contexts/CartContext';
 
 interface Book {
   id: number;
@@ -24,7 +22,6 @@ interface Book {
 function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'product'>('home');
   const [selectedProduct, setSelectedProduct] = useState<Book | null>(null);
-  const [cartOpen, setCartOpen] = useState(false);
 
   const handleProductClick = (product: Book) => {
     setSelectedProduct(product);
@@ -38,26 +35,22 @@ function App() {
   };
 
   return (
-    <CartProvider>
-      <div className="min-h-screen bg-white">
-        <Navigation onCartClick={() => setCartOpen(true)} />
+    <div className="min-h-screen bg-white">
+      <Navigation />
 
-        {currentPage === 'home' ? (
-          <>
-            <Hero />
-            <FeaturedProducts onProductClick={handleProductClick} />
-            <About />
-            <Contact />
-            <Footer />
-            <FloatingContactButtons />
-          </>
-        ) : (
-          selectedProduct && <ProductDetails book={selectedProduct} onBack={handleBackToHome} />
-        )}
-
-        <ShoppingCart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
-      </div>
-    </CartProvider>
+      {currentPage === 'home' ? (
+        <>
+          <Hero />
+          <FeaturedProducts onProductClick={handleProductClick} />
+          <About />
+          <Contact />
+          <Footer />
+          <FloatingContactButtons />
+        </>
+      ) : (
+        selectedProduct && <ProductDetails book={selectedProduct} onBack={handleBackToHome} />
+      )}
+    </div>
   );
 }
 
