@@ -14,7 +14,7 @@ export default function Hero() {
           Quality Books for Everyone
         </p>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Discover a curated collection of books, notebooks, and learning materials
+          Discover a curated collection of books, notebooks and learning materials
           to inspire and educate readers of all ages.
         </p>
       </div>
