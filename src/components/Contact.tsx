@@ -1,6 +1,5 @@
 import { useState, FormEvent } from 'react';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,29 +9,18 @@ export default function Contact() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
 
-  async function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitting(true);
-    setError('');
-    setSuccess(false);
 
-    try {
-      const { error: submitError } = await supabase
-        .from('contact_submissions')
-        .insert([formData]);
-
-      if (submitError) throw submitError;
-
+    setTimeout(() => {
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-      setError('Failed to send message. Please try again.');
-      console.error('Error submitting form:', err);
-    } finally {
       setSubmitting(false);
-    }
+
+      setTimeout(() => setSuccess(false), 3000);
+    }, 500);
   }
 
   return (
@@ -143,12 +131,6 @@ export default function Contact() {
               {success && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
                   Thank you for your message! We'll get back to you soon.
-                </div>
-              )}
-
-              {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-                  {error}
                 </div>
               )}
 
