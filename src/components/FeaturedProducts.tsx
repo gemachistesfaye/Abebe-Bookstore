@@ -1,5 +1,6 @@
-import { Star, ShoppingCart } from 'lucide-react';
+import { Star, ShoppingCart, Search } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '../contexts/CartContext';
 
 interface Book {
   id: number;
@@ -10,6 +11,10 @@ interface Book {
   image: string;
   rating: number;
   description: string;
+}
+
+interface FeaturedProductsProps {
+  onProductClick: (product: Book) => void;
 }
 
 const books: Book[] = [
@@ -75,14 +80,32 @@ const books: Book[] = [
   }
 ];
 
-export default function FeaturedProducts() {
+export default function FeaturedProducts({ onProductClick }: FeaturedProductsProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const { addItem } = useCart();
 
   const categories = ["All", ...new Set(books.map(b => b.category))];
 
-  const filteredBooks = selectedCategory === "All"
+  let filteredBooks = selectedCategory === "All"
     ? books
     : books.filter(b => b.category === selectedCategory);
+
+  if (searchQuery) {
+    filteredBooks = filteredBooks.filter(b =>
+      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      b.author.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  const handleAddToCart = (book: Book) => {
+    addItem({
+      id: book.id,
+      title: book.title,
+      price: book.price,
+      image: book.image,
+    });
+  };
 
   return (
     <section id="featured-products" className="py-16 px-4 bg-gray-50">
@@ -90,9 +113,22 @@ export default function FeaturedProducts() {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
           Our Collection
         </h2>
-        <p className="text-center text-gray-600 mb-12">
+        <p className="text-center text-gray-600 mb-8">
           Handpicked books for every reader and interest
         </p>
+
+        <div className="mb-8">
+          <div className="relative">
+            <Search className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search by title or author..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-700"
+            />
+          </div>
+        </div>
 
         <div className="flex flex-wrap gap-3 justify-center mb-12">
           {categories.map(cat => (
@@ -116,7 +152,10 @@ export default function FeaturedProducts() {
               key={book.id}
               className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
-              <div className="h-64 overflow-hidden bg-gray-200">
+              <div
+                className="h-64 overflow-hidden bg-gray-200 cursor-pointer"
+                onClick={() => onProductClick(book)}
+              >
                 <img
                   src={book.image}
                   alt={book.title}
@@ -136,7 +175,10 @@ export default function FeaturedProducts() {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-gray-900 mb-1 line-clamp-2">
+                <h3
+                  className="text-lg font-bold text-gray-900 mb-1 line-clamp-2 cursor-pointer hover:text-amber-700"
+                  onClick={() => onProductClick(book)}
+                >
                   {book.title}
                 </h3>
                 <p className="text-sm text-gray-600 mb-3">{book.author}</p>
@@ -148,7 +190,10 @@ export default function FeaturedProducts() {
                   <span className="text-2xl font-bold text-amber-700">
                     ${book.price}
                   </span>
-                  <button className="bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-lg transition-colors">
+                  <button
+                    onClick={() => handleAddToCart(book)}
+                    className="bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-lg transition-colors"
+                  >
                     <ShoppingCart className="w-5 h-5" />
                   </button>
                 </div>
@@ -156,6 +201,12 @@ export default function FeaturedProducts() {
             </div>
           ))}
         </div>
+
+        {filteredBooks.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-600 text-lg">No books found matching your search.</p>
+          </div>
+        )}
       </div>
     </section>
   );

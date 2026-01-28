@@ -1,8 +1,14 @@
-import { BookOpen, Menu, X } from 'lucide-react';
+import { BookOpen, Menu, X, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
+import { useCart } from '../contexts/CartContext';
 
-export default function Navigation() {
+interface NavigationProps {
+  onCartClick: () => void;
+}
+
+export default function Navigation({ onCartClick }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { items } = useCart();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -11,6 +17,8 @@ export default function Navigation() {
       setIsOpen(false);
     }
   };
+
+  const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -47,6 +55,18 @@ export default function Navigation() {
               Contact
             </button>
           </div>
+
+          <button
+            onClick={onCartClick}
+            className="relative p-2 text-gray-700 hover:text-amber-700 transition-colors"
+          >
+            <ShoppingCart className="w-6 h-6" />
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
+          </button>
 
           <button
             className="md:hidden"
