@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-6 py-4 md:py-0">
           <div>
             <div className="flex items-center mb-3">
               <BookOpen className="w-7 h-7 text-amber-500 mr-2" />
@@ -32,12 +32,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold mb-4 text-gray-300 flex items-center gap-2">
+          <div className="md:text-right">
+            <h3 className="text-sm font-semibold mb-4 text-gray-300 flex items-center gap-2 md:justify-end">
               <Mail className="w-5 h-5 text-amber-500" />
               Developer Contact
             </h3>
-            <div className="flex flex-col gap-3 space-y-2">
+            <div className="flex flex-col gap-3 space-y-2 md:items-end">
               <div>
                 <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Email</p>
                 <a
@@ -64,7 +64,7 @@ export default function Footer() {
                   href="https://github.com/abebebookstore"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-200 transition-colors inline-flex items-center gap-2"
+                  className="text-gray-400 hover:text-gray-200 transition-colors inline-flex items-center gap-2 md:flex-row-reverse"
                   title="GitHub"
                 >
                   <Github className="w-4 h-4" />
