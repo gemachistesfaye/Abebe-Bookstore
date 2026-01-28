@@ -1,10 +1,10 @@
-import { BookOpen, Facebook, Github, Mail } from 'lucide-react';
+import { BookOpen, Facebook, Github, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <div>
             <div className="flex items-center mb-3">
               <BookOpen className="w-7 h-7 text-amber-500 mr-2" />
@@ -15,26 +15,36 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="mt-4 md:mt-0 md:text-right">
             <h3 className="text-sm font-semibold mb-3 text-gray-300">Developer Contact</h3>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col gap-2">
               <a
                 href="mailto:dev@abebebookstore.com"
-                className="text-gray-400 hover:text-amber-500 transition-colors flex items-center gap-2"
+                className="text-gray-400 hover:text-amber-500 transition-colors flex items-center gap-2 md:justify-end"
                 title="Developer Email"
               >
                 <Mail className="w-4 h-4" />
                 <span className="text-sm">dev@abebebookstore.com</span>
               </a>
               <a
-                href="https://github.com/abebebookstore"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gray-200 transition-colors"
-                title="GitHub"
+                href="tel:+251911234567"
+                className="text-gray-400 hover:text-amber-500 transition-colors flex items-center gap-2 md:justify-end"
+                title="Developer Phone"
               >
-                <Github className="w-5 h-5" />
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+251 91 123 4567</span>
               </a>
+              <div className="flex items-center gap-2 md:justify-end">
+                <a
+                  href="https://github.com/abebebookstore"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-gray-200 transition-colors"
+                  title="GitHub"
+                >
+                  <Github className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
