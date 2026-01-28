@@ -1,82 +1,126 @@
-import { BookOpen, Facebook, Github, Mail, Phone } from 'lucide-react';
+import React from 'react';
+import { 
+  BookOpen, 
+  Facebook, 
+  Github, 
+  Mail, 
+  Phone, 
+  ExternalLink
+} from 'lucide-react';
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gray-900 text-white py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-6 py-4 md:py-0">
-          <div>
-            <div className="flex items-center mb-3">
-              <BookOpen className="w-7 h-7 text-amber-500 mr-2" />
-              <span className="text-lg font-bold">Abebe Bookstore</span>
+    <footer className="bg-slate-900 text-slate-200 py-8 px-6 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          
+          {}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2.5 group">
+              <div className="bg-amber-500 p-2 rounded transition-transform group-hover:rotate-12">
+                <BookOpen className="w-5 h-5 text-slate-900" />
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white">
+                Abebe Bookstore
+              </span>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Quality books and learning materials for everyone since 2019.
+            
+            <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
+              Quality books and learning materials for everyone since 2019. Visit us for a curated selection and exceptional service. 
             </p>
-            <div className="flex gap-4">
+
+            <div className="flex gap-3">
               <a
                 href="https://www.facebook.com/abebebookstore"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-blue-500 transition-colors"
-                title="Follow us on Facebook"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300"
+                title="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4" />
               </a>
-              <svg className="w-5 h-5 text-gray-400 hover:text-sky-400 transition-colors cursor-pointer" fill="currentColor" viewBox="0 0 24 24" onClick={() => window.open('https://t.me/abebebookstore', '_blank')} title="Chat with us on Telegram">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295-.002-1.206-.02-4.413-.031-8.842l8.136-7.335z"/>
-              </svg>
-              <svg className="w-5 h-5 text-gray-400 hover:text-gray-300 transition-colors cursor-pointer" fill="currentColor" viewBox="0 0 24 24" onClick={() => window.open('https://www.tiktok.com/@abebebookstore', '_blank')} title="Follow us on TikTok">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.01-.01z"/>
-              </svg>
+              
+              <a
+                href="https://t.me/abebebookstore"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-sky-500 hover:text-white transition-all duration-300"
+                title="Telegram"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .33z"/>
+                </svg>
+              </a>
+
+              <a
+                href="https://www.tiktok.com/@abebebookstore"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 hover:bg-pink-600 hover:text-white transition-all duration-300"
+                title="TikTok"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.01-.01z"/>
+                </svg>
+              </a>
             </div>
           </div>
 
-          <div className="md:text-right">
-            <h3 className="text-sm font-semibold mb-4 text-gray-300 flex items-center gap-2 md:justify-end">
-              <Mail className="w-5 h-5 text-amber-500" />
-              Developer Contact
+          {}
+          <div className="md:pl-12">
+            <h3 className="text-white font-semibold mb-4 uppercase tracking-wider text-xs">Quick Links</h3>
+            <ul className="space-y-3 text-sm font-medium">
+              <li><a href="/" className="text-slate-400 hover:text-amber-500 transition-colors">Home</a></li>
+              <li><a href="/products" className="text-slate-400 hover:text-amber-500 transition-colors">Products</a></li>
+              <li><a href="/about" className="text-slate-400 hover:text-amber-500 transition-colors">About</a></li>
+              <li><a href="/contact" className="text-slate-400 hover:text-amber-500 transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          {}
+          <div className="bg-slate-800/40 p-5 rounded-xl border border-slate-700/50 self-start">
+            <h3 className="text-white font-semibold mb-4 flex items-center gap-2 text-sm">
+              <span className="w-6 h-px bg-amber-500"></span>
+              Developer
             </h3>
-            <div className="flex flex-col gap-3 space-y-2 md:items-end">
-              <div>
-                <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Email</p>
-                <a
-                  href="mailto:dev@abebebookstore.com"
-                  className="text-gray-300 hover:text-amber-500 transition-colors text-sm"
-                  title="Developer Email"
-                >
-                  dev@abebebookstore.com
+            
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-amber-500 shrink-0" />
+                <a href="mailto:dev@abebebookstore.com" className="text-sm text-slate-300 hover:text-amber-500 transition-colors truncate">
+                  gemachistesfaye36@gmail.com
                 </a>
               </div>
-              <div>
-                <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Phone</p>
-                <a
-                  href="tel:+251911234567"
-                  className="text-gray-300 hover:text-amber-500 transition-colors text-sm"
-                  title="Developer Phone"
-                >
-                  +251 91 123 4567
+
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-amber-500 shrink-0" />
+                <a href="tel:+2519776601074" className="text-sm text-slate-300 hover:text-amber-500 transition-colors">
+                  +251 97 7660 1074
                 </a>
               </div>
-              <div>
-                <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">Follow</p>
+
+              <div className="pt-1">
                 <a
-                  href="https://github.com/abebebookstore"
+                  href="https://github.com/gemachistesfaye"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-200 transition-colors inline-flex items-center gap-2 md:flex-row-reverse"
-                  title="GitHub"
+                  className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-xs font-medium"
                 >
                   <Github className="w-4 h-4" />
-                  <span className="text-sm">GitHub</span>
+                  <span>GitHub Profile</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6">
-          <p className="text-center text-gray-500 text-sm">&copy; {new Date().getFullYear()} Abebe Bookstore. All rights reserved.</p>
+        {}
+        <div className="border-t border-slate-800 pt-6">
+          <p className="text-center text-slate-500 text-xs">
+            &copy; {currentYear} Abebe Bookstore. Built in Ethiopia.
+          </p>
         </div>
       </div>
     </footer>
