@@ -4,45 +4,54 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
           <div>
             <div className="flex items-center mb-3">
               <BookOpen className="w-7 h-7 text-amber-500 mr-2" />
               <span className="text-lg font-bold">Abebe Bookstore</span>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm leading-relaxed">
               Quality books and learning materials for everyone since 2019.
             </p>
           </div>
 
-          <div className="mt-4 md:mt-0 md:text-right">
-            <h3 className="text-sm font-semibold mb-3 text-gray-300">Developer Contact</h3>
-            <div className="flex flex-col gap-2">
-              <a
-                href="mailto:dev@abebebookstore.com"
-                className="text-gray-400 hover:text-amber-500 transition-colors flex items-center gap-2 md:justify-end"
-                title="Developer Email"
-              >
-                <Mail className="w-4 h-4" />
-                <span className="text-sm">dev@abebebookstore.com</span>
-              </a>
-              <a
-                href="tel:+251911234567"
-                className="text-gray-400 hover:text-amber-500 transition-colors flex items-center gap-2 md:justify-end"
-                title="Developer Phone"
-              >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">+251 91 123 4567</span>
-              </a>
-              <div className="flex items-center gap-2 md:justify-end">
+          <div>
+            <h3 className="text-sm font-semibold mb-4 text-gray-300 flex items-center gap-2">
+              <Mail className="w-5 h-5 text-amber-500" />
+              Developer Contact
+            </h3>
+            <div className="flex flex-col gap-3 space-y-2">
+              <div>
+                <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Email</p>
+                <a
+                  href="mailto:dev@abebebookstore.com"
+                  className="text-gray-300 hover:text-amber-500 transition-colors text-sm"
+                  title="Developer Email"
+                >
+                  dev@abebebookstore.com
+                </a>
+              </div>
+              <div>
+                <p className="text-gray-500 text-xs uppercase tracking-wider mb-1">Phone</p>
+                <a
+                  href="tel:+251911234567"
+                  className="text-gray-300 hover:text-amber-500 transition-colors text-sm"
+                  title="Developer Phone"
+                >
+                  +251 91 123 4567
+                </a>
+              </div>
+              <div>
+                <p className="text-gray-500 text-xs uppercase tracking-wider mb-2">Follow</p>
                 <a
                   href="https://github.com/abebebookstore"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gray-200 transition-colors"
+                  className="text-gray-400 hover:text-gray-200 transition-colors inline-flex items-center gap-2"
                   title="GitHub"
                 >
-                  <Github className="w-5 h-5" />
+                  <Github className="w-4 h-4" />
+                  <span className="text-sm">GitHub</span>
                 </a>
               </div>
             </div>
