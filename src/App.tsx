@@ -22,16 +22,19 @@ interface Book {
 function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'product'>('home');
   const [selectedProduct, setSelectedProduct] = useState<Book | null>(null);
+  const [scrollY, setScrollY] = useState(0); 
 
   const handleProductClick = (product: Book) => {
+    setScrollY(window.scrollY); 
     setSelectedProduct(product);
     setCurrentPage('product');
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); 
   };
 
   const handleBackToHome = () => {
     setCurrentPage('home');
     setSelectedProduct(null);
+    window.scrollTo(0, scrollY); 
   };
 
   return (
@@ -53,5 +56,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
