@@ -273,7 +273,7 @@ export default function FeaturedProducts({ onProductClick }: FeaturedProductsPro
           </h1>
           <p className="text-stone-600 text-sm md:text-base max-w-2xl italic">
             "A book is like a garden carried in the pocket." — Traditional Wisdom.
-            Discover classics in Amharic, Afaan Oromo, and English.
+            Discover classics in Amharic, Afaan Oromo and English.
           </p>
         </div>
       </div>
