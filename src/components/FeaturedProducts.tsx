@@ -64,7 +64,7 @@ const books: Book[] = [
     image: "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
     rating: 5,
     isClassic: true,
-    description: "The masterpiece of Amharic literature—an epic story of love, social class, and the struggle against feudalism."
+    description: "The masterpiece of Amharic literature—an epic story of love, social class and the struggle against feudalism."
   },
   {
     id: 5,
@@ -110,7 +110,7 @@ const books: Book[] = [
     price: 920,
     image: "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
     rating: 4,
-    description: "Explores digital transformation, tech startups, and the evolving business landscape in Addis Ababa."
+    description: "Explores digital transformation, tech startups and the evolving business landscape in Addis Ababa."
   },
   {
     id: 9,
@@ -121,7 +121,7 @@ const books: Book[] = [
     price: 980,
     image:"/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
     rating: 5,
-    description: "Insights from a top economist on banking, development, and Oromo economic participation."
+    description: "Insights from a top economist on banking, development and Oromo economic participation."
   },
   // LANGUAGE
   {
@@ -133,7 +133,7 @@ const books: Book[] = [
     price: 600,
     image: "/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg", 
     rating: 5,
-    description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar, and conversational skills."
+    description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar and conversational skills."
   },
   {
     id: 11,
@@ -144,7 +144,7 @@ const books: Book[] = [
     price: 580,
     image: "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg", 
     rating: 5,
-    description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary, and culture."
+    description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary and culture."
   },
   {
     id: 12,
@@ -223,7 +223,7 @@ const books: Book[] = [
     price: 600,
     image: "/images/Oromia_An_Introduction.jpg",
     rating: 5,
-    description: "A foundational look at Oromo social values, Siinqee, and the core philosophies of Gadaa culture."
+    description: "A foundational look at Oromo social values, Siinqee and the core philosophies of Gadaa culture."
   }
 ];
 
