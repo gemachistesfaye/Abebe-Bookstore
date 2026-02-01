@@ -51,7 +51,7 @@ export default function Contact() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Contact Info + Map */}
+          {}
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-6">
               Contact Information
@@ -62,7 +62,7 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-amber-600 mr-4 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">+251 11 234 5678</p>
+                  <p className="text-gray-600">+251 000 000 0000</p>
                 </div>
               </div>
 
@@ -79,16 +79,17 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-gray-900">Location</p>
                   <p className="text-gray-600">
-                    123 Main Street<br />
-                    Addis Ababa, Ethiopia
+                    Near Harar Ras Hotel<br />
+                    Harar, Ethiopia
                   </p>
                 </div>
               </div>
             </div>
 
+
             <div className="mt-8 rounded-lg overflow-hidden shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9800.912703013028!2d42.1127907512148!3d9.313719383508488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1631bda3c73a509d%3A0x47a0ad82e9e99ed6!2sHarar!5e0!3m2!1sen!2set!4v1769958968186!5m2!1sen!2set"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2579.8128110668545!2d42.11918264596196!3d9.3126546425665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1769964507392!5m2!1sen!2set"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}
