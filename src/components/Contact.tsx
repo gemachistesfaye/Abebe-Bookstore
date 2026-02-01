@@ -9,18 +9,35 @@ export default function Contact() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setSubmitting(true);
+    setError(null);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://formspree.io/f/xgozaaok', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message.');
+      }
+
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
-      setSubmitting(false);
 
-      setTimeout(() => setSuccess(false), 3000);
-    }, 500);
+      setTimeout(() => setSuccess(false), 5000); 
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong.');
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -34,6 +51,7 @@ export default function Contact() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Info + Map */}
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-6">
               Contact Information
@@ -70,7 +88,7 @@ export default function Contact() {
 
             <div className="mt-8 rounded-lg overflow-hidden shadow-md">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252229.79950826856!2d38.61328537498398!3d8.963479699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1641234567890!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9800.912703013028!2d42.1127907512148!3d9.313719383508488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1631bda3c73a509d%3A0x47a0ad82e9e99ed6!2sHarar!5e0!3m2!1sen!2set!4v1769958968186!5m2!1sen!2set"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}
@@ -81,6 +99,7 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -131,6 +150,12 @@ export default function Contact() {
               {success && (
                 <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
                   Thank you for your message! We'll get back to you soon.
+                </div>
+              )}
+
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  {error}
                 </div>
               )}
 
