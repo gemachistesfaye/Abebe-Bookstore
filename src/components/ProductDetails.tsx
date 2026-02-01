@@ -21,13 +21,10 @@ interface ProductDetailsProps {
 export default function ProductDetails({ book, onBack, onInquire }: ProductDetailsProps) {
   const [isLiked, setIsLiked] = useState(false);
 
- 
-
   const handleBack = () => {
     onBack();
   };
 
- 
   if (!book) {
     return (
       <div className="min-h-screen bg-[#fdfaf6] flex flex-col items-center justify-center p-4">
@@ -55,6 +52,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
           Back to Collection
         </button>
 
+        {}
         <div className="bg-white rounded-xl shadow-sm border border-stone-100 overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-12">
             
@@ -62,7 +60,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
             <div className="md:col-span-5 bg-stone-50 p-6 flex items-center justify-center border-b md:border-b-0 md:border-r border-stone-100">
               <div className="relative w-full max-w-[280px]">
                 <img
-                  src={book.image}
+                  src={book.image.startsWith('/') ? book.image : `/${book.image}`} // Ensures public folder path
                   alt={book.title}
                   className="w-full h-auto rounded shadow-xl object-cover aspect-[3/4]"
                 />
@@ -88,6 +86,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
               </h1>
               <p className="text-lg text-stone-500 font-medium mb-4">by {book.author}</p>
 
+              {}
               <div className="flex items-center gap-2 mb-6 pb-4 border-b border-stone-50">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
@@ -100,6 +99,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
                 <span className="text-stone-400 text-xs font-medium">Reader Rating</span>
               </div>
 
+              {}
               <div className="mb-6">
                 <h3 className="text-[10px] font-bold text-stone-900 uppercase tracking-widest mb-2 flex items-center gap-2">
                   <BookOpen className="w-3 h-3 text-amber-800" />
@@ -110,6 +110,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
                 </p>
               </div>
 
+              {}
               <div className="mt-auto">
                 <div className="flex items-end justify-between mb-6">
                   <div>
@@ -150,6 +151,16 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
                     <span className="text-xs text-stone-900 font-bold">Physical Copy Only</span>
                   </div>
                 </div>
+
+                {}
+                {onInquire && (
+                  <button
+                    onClick={onInquire}
+                    className="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-lg transition-colors flex items-center justify-center gap-2"
+                  >
+                    Inquire About This Book
+                  </button>
+                )}
               </div>
             </div>
 

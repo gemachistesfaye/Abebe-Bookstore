@@ -17,7 +17,6 @@ interface Book {
 interface FeaturedProductsProps {
   onProductClick: (product: Book) => void;
 }
-
 const books: Book[] = [
   // HISTORY
   {
@@ -27,7 +26,7 @@ const books: Book[] = [
     category: "History",
     language: "English",
     price: 950,
-    image: "src/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
+    image: "/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
     rating: 5,
     description: "The definitive guide to the Ethiopian state, from the ancient Axumite Empire to the modern era."
   },
@@ -38,7 +37,7 @@ const books: Book[] = [
     category: "History",
     language: "English",
     price: 880,
-    image: "src/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
+    image: "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
     rating: 5,
     description: "The essential textbook for understanding the formation of the modern nation and its political evolution (1855–1991)."
   },
@@ -49,7 +48,7 @@ const books: Book[] = [
     category: "History",
     language: "English",
     price: 1100,
-    image: "src/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
+    image: "/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
     rating: 5,
     isClassic: true,
     description: "A world-renowned study on the Gadaa System, showcasing the brilliance of Oromo democratic institutions."
@@ -62,7 +61,7 @@ const books: Book[] = [
     category: "Literature",
     language: "Amharic",
     price: 750,
-    image: "src/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
+    image: "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
     rating: 5,
     isClassic: true,
     description: "The masterpiece of Amharic literature—an epic story of love, social class, and the struggle against feudalism."
@@ -74,7 +73,7 @@ const books: Book[] = [
     category: "Literature",
     language: "Afaan Oromo",
     price: 620,
-    image: "src/images/Godannisa_ by_Kuusaa_Gadaa.jpeg",  
+    image: "/images/Godannisa_by_Kuusaa_Gadaa.jpeg",
     rating: 5,
     isClassic: true,
     description: "The first published novel in Afaan Oromo. A historic milestone representing the soul and identity of the Oromo people."
@@ -86,7 +85,7 @@ const books: Book[] = [
     category: "Literature",
     language: "Amharic",
     price: 680,
-    image: "src/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
+    image: "/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
     rating: 4,
     description: "A complex modernist novel that brilliantly captures the tension between tradition and the 1960s revolution."
   },
@@ -98,7 +97,7 @@ const books: Book[] = [
     category: "Business",
     language: "English",
     price: 1250,
-    image: "src/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
+    image: "/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
     rating: 5,
     description: "A critical analysis of industrial policy and the roadmap for transforming Ethiopia into a manufacturing hub."
   },
@@ -109,7 +108,7 @@ const books: Book[] = [
     category: "Business",
     language: "English",
     price: 920,
-    image: "src/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
+    image: "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
     rating: 4,
     description: "Explores digital transformation, tech startups, and the evolving business landscape in Addis Ababa."
   },
@@ -120,80 +119,78 @@ const books: Book[] = [
     category: "Business",
     language: "English",
     price: 980,
-    image:"src/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
+    image:"/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
     rating: 5,
     description: "Insights from a top economist on banking, development, and Oromo economic participation."
   },
   // LANGUAGE
-{
-  id: 10,
-  title: "Selam! Learn Amharic",
-  author: "Dawit Lambebo Gulta",
-  category: "Language",
-  language: "Amharic",
-  price: 600,
-  image: "src/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg", 
-  rating: 5,
-  description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar, and conversational skills."
-},
-{
-  id: 11,
-  title: "Afan Oromo: A Guide to Speaking the Language of Oromo People",
-  author: "Abebe Bulto & Andrew Tadross",
-  category: "Language",
-  language: "Afaan Oromo",
-  price: 580,
-  image: "src/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg", 
-  rating: 5,
-  description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary, and culture."
-},
-{
-  id: 12,
-  title: "Amharic: My First Words",
-  author: "Melkam Media",
-  category: "Language",
-  language: "Amharic",
-  price: 450,
-  image: "src/images/Amharic_My_First_Words_by_Melkam_Media.jpeg", 
-  rating: 5,
-  description: "A fun and colorful picture book for beginners to start learning essential Amharic words."
-},
-
-  // CHILDREN – FOLK TALES
-{
-  id: 13,
-  title: "The Little Girl and The Three Lions",
-  author: "Kiazpora",
-  category: "Children",
-  language: "Afaan Oromo",
-  price: 380,
-  image: "src/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
-  rating: 5,
-  description: "An engaging Oromo folktale adaptation about a little girl’s adventure with three lions — perfect for young readers learning language and culture."
-},
-{
-  id: 14,
-  title: "The Runaway Injera: An Ethiopian Fairy Tale",
-  author: "Various / Traditional",
-  category: "Children",
-  language: "Bilingual",
-  price: 350,
-  image: "src/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
-  rating: 5,
-  description: "A lively retelling of a beloved Ethiopian folk tale inspired by the classic runaway food story, filled with cultural charm and playful illustrations."
-},
-{
-  id: 15,
-  title: "ፀሃይ እና ንፋስ እንዲሁም ሌሎች ተረቶች",
-  author: "Mosisa Wakshum",
-  category: "Children",
-  language: "Amharic",
-  price: 400,
-  image: "src/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
-  rating: 5,
-  description: "An Amharic collection of short folktales for children, including the story of the Sun and Wind and other traditional moral tales."
-}
-,
+  {
+    id: 10,
+    title: "Selam! Learn Amharic",
+    author: "Dawit Lambebo Gulta",
+    category: "Language",
+    language: "Amharic",
+    price: 600,
+    image: "/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg", 
+    rating: 5,
+    description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar, and conversational skills."
+  },
+  {
+    id: 11,
+    title: "Afan Oromo: A Guide to Speaking the Language of Oromo People",
+    author: "Abebe Bulto & Andrew Tadross",
+    category: "Language",
+    language: "Afaan Oromo",
+    price: 580,
+    image: "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg", 
+    rating: 5,
+    description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary, and culture."
+  },
+  {
+    id: 12,
+    title: "Amharic: My First Words",
+    author: "Melkam Media",
+    category: "Language",
+    language: "Amharic",
+    price: 450,
+    image: "/images/Amharic_My_First_Words_by_Melkam_Media.jpeg", 
+    rating: 5,
+    description: "A fun and colorful picture book for beginners to start learning essential Amharic words."
+  },
+  // CHILDREN
+  {
+    id: 13,
+    title: "The Little Girl and The Three Lions",
+    author: "Kiazpora",
+    category: "Children",
+    language: "Afaan Oromo",
+    price: 380,
+    image: "/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
+    rating: 5,
+    description: "An engaging Oromo folktale adaptation about a little girl’s adventure with three lions — perfect for young readers learning language and culture."
+  },
+  {
+    id: 14,
+    title: "The Runaway Injera: An Ethiopian Fairy Tale",
+    author: "Various / Traditional",
+    category: "Children",
+    language: "Bilingual",
+    price: 350,
+    image: "/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
+    rating: 5,
+    description: "A lively retelling of a beloved Ethiopian folk tale inspired by the classic runaway food story, filled with cultural charm and playful illustrations."
+  },
+  {
+    id: 15,
+    title: "ፀሃይ እና ንፋስ እንዲሁም ሌሎች ተረቶች",
+    author: "Mosisa Wakshum",
+    category: "Children",
+    language: "Amharic",
+    price: 400,
+    image: "/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
+    rating: 5,
+    description: "An Amharic collection of short folktales for children, including the story of the Sun and Wind and other traditional moral tales."
+  },
   // CULTURE
   {
     id: 16,
@@ -202,22 +199,21 @@ const books: Book[] = [
     category: "Culture",
     language: "English",
     price: 1100,
-    image: "src/images/The Flavors of Ethiopia.jpg",
+    image: "/images/The_Flavors_of_Ethiopia.jpg",
     rating: 5,
     description: "An award-winning cookbook and cultural guide celebrating the art of Gursha and traditional recipes."
   },
- {
-  id: 17,
-  title: "አማርኛ የቡና ታሪክ እና ባህላዊ ሥነ ሥርዓት",
-  author: "ማህበረ ‑ ባህላዊ ጥናት ተቋማት",
-  category: "Culture",
-  language: "Amharic",
-  price: 520,
-  image: "src/images/አማርኛ የቡና ታሪክ እና ባህላዊ ሥነ ሥርዓት መፅሃፍ ካቫር.jpg",
-  rating: 5,
-  description: "A detailed guide in Amharic exploring the rich history and cultural rituals of Ethiopian coffee traditions and ceremonies."
-}
-,
+  {
+    id: 17,
+    title: "አማርኛ የቡና ታሪክ እና ባህላዊ ሥነ ሥርዓት",
+    author: "ማህበረ ‑ ባህላዊ ጥናት ተቋማት",
+    category: "Culture",
+    language: "Amharic",
+    price: 520,
+    image: "/images/አማርኛ_የቡና_ታሪክ_እና_ባህላዊ_ሥነ_ሥርዓት_መፅሃፍ_ካቫር.jpg",
+    rating: 5,
+    description: "A detailed guide in Amharic exploring the rich history and cultural rituals of Ethiopian coffee traditions and ceremonies."
+  },
   {
     id: 18,
     title: "Oromia: An Introduction",
@@ -225,11 +221,12 @@ const books: Book[] = [
     category: "Culture",
     language: "English",
     price: 600,
-    image: "src/images/Oromia_An Introduction.jpg",
+    image: "/images/Oromia_An_Introduction.jpg",
     rating: 5,
     description: "A foundational look at Oromo social values, Siinqee, and the core philosophies of Gadaa culture."
   }
 ];
+
 
 export default function FeaturedProducts({ onProductClick }: FeaturedProductsProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
