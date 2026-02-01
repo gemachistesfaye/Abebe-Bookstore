@@ -8,7 +8,7 @@ export default function About() {
           About Our Bookstore
         </h2>
         <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-          Serving our community with books, notebooks, and learning materials since 2019
+          Serving our community with books, notebooks and learning materials since 2019
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
