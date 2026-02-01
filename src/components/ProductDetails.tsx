@@ -129,7 +129,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
 
                 <div className="grid grid-cols-1 gap-3">
                   <a 
-                    href="tel:+251112345678"
+                    href="tel:+251 0000000000"
                     className="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold py-3.5 rounded-lg transition-all flex items-center justify-center gap-2 text-sm text-center shadow-lg shadow-stone-900/10"
                   >
                     <Phone className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default function ProductDetails({ book, onBack, onInquire }: ProductDetai
                 </div>
                 <div className="flex items-center justify-center gap-2 text-stone-400 text-[10px] py-3">
                   <Info className="w-3 h-3" />
-                  Direct order line: +251 11 234 5678
+                  Direct order line: +251 000 000 0000
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-stone-50 grid grid-cols-2 gap-4">
