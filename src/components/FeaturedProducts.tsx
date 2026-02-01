@@ -25,7 +25,7 @@ const books: Book[] = [
     author: "Harold G. Marcus",
     category: "History",
     language: "English",
-    price: 950,
+    price: 550,
     image: "/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
     rating: 5,
     description: "The definitive guide to the Ethiopian state, from the ancient Axumite Empire to the modern era."
@@ -36,7 +36,7 @@ const books: Book[] = [
     author: "Bahru Zewde",
     category: "History",
     language: "English",
-    price: 880,
+    price: 580,
     image: "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
     rating: 5,
     description: "The essential textbook for understanding the formation of the modern nation and its political evolution (1855–1991)."
@@ -47,7 +47,7 @@ const books: Book[] = [
     author: "Asmarom Legesse",
     category: "History",
     language: "English",
-    price: 1100,
+    price: 700,
     image: "/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
     rating: 5,
     isClassic: true,
@@ -96,7 +96,7 @@ const books: Book[] = [
     author: "Arkebe Oqubay",
     category: "Business",
     language: "English",
-    price: 1250,
+    price: 600,
     image: "/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
     rating: 5,
     description: "A critical analysis of industrial policy and the roadmap for transforming Ethiopia into a manufacturing hub."
@@ -107,7 +107,7 @@ const books: Book[] = [
     author: "Mulu Gebreeyesus",
     category: "Business",
     language: "English",
-    price: 920,
+    price: 420,
     image: "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
     rating: 4,
     description: "Explores digital transformation, tech startups and the evolving business landscape in Addis Ababa."
@@ -118,7 +118,7 @@ const books: Book[] = [
     author: "Bulcha Demeksa",
     category: "Business",
     language: "English",
-    price: 980,
+    price: 480,
     image:"/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
     rating: 5,
     description: "Insights from a top economist on banking, development and Oromo economic participation."
@@ -130,7 +130,7 @@ const books: Book[] = [
     author: "Dawit Lambebo Gulta",
     category: "Language",
     language: "Amharic",
-    price: 600,
+    price: 350,
     image: "/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg", 
     rating: 5,
     description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar and conversational skills."
@@ -141,7 +141,7 @@ const books: Book[] = [
     author: "Abebe Bulto & Andrew Tadross",
     category: "Language",
     language: "Afaan Oromo",
-    price: 580,
+    price: 280,
     image: "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg", 
     rating: 5,
     description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary and culture."
@@ -152,7 +152,7 @@ const books: Book[] = [
     author: "Melkam Media",
     category: "Language",
     language: "Amharic",
-    price: 450,
+    price: 250,
     image: "/images/Amharic_My_First_Words_by_Melkam_Media.jpeg", 
     rating: 5,
     description: "A fun and colorful picture book for beginners to start learning essential Amharic words."
@@ -164,7 +164,7 @@ const books: Book[] = [
     author: "Kiazpora",
     category: "Children",
     language: "Afaan Oromo",
-    price: 380,
+    price: 280,
     image: "/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
     rating: 5,
     description: "An engaging Oromo folktale adaptation about a little girl’s adventure with three lions — perfect for young readers learning language and culture."
@@ -186,7 +186,7 @@ const books: Book[] = [
     author: "Mosisa Wakshum",
     category: "Children",
     language: "Amharic",
-    price: 400,
+    price: 300,
     image: "/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
     rating: 5,
     description: "An Amharic collection of short folktales for children, including the story of the Sun and Wind and other traditional moral tales."
@@ -198,7 +198,7 @@ const books: Book[] = [
     author: "Chef Yohanis",
     category: "Culture",
     language: "English",
-    price: 1100,
+    price: 600,
     image: "/images/The_Flavors_of_Ethiopia.jpg",
     rating: 5,
     description: "An award-winning cookbook and cultural guide celebrating the art of Gursha and traditional recipes."
@@ -209,7 +209,7 @@ const books: Book[] = [
     author: "ማህበረ ‑ ባህላዊ ጥናት ተቋማት",
     category: "Culture",
     language: "Amharic",
-    price: 520,
+    price: 420,
     image: "/images/አማርኛ_የቡና_ታሪክ_እና_ባህላዊ_ሥነ_ሥርዓት_መፅሃፍ_ካቫር.jpg",
     rating: 5,
     description: "A detailed guide in Amharic exploring the rich history and cultural rituals of Ethiopian coffee traditions and ceremonies."
@@ -220,7 +220,7 @@ const books: Book[] = [
     author: "Gadaa Melbaa",
     category: "Culture",
     language: "English",
-    price: 600,
+    price: 550,
     image: "/images/Oromia_An_Introduction.jpg",
     rating: 5,
     description: "A foundational look at Oromo social values, Siinqee and the core philosophies of Gadaa culture."
