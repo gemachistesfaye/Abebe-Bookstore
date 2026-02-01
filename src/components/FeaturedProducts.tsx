@@ -1,15 +1,17 @@
-import { Star, Search } from 'lucide-react';
-import { useState } from 'react';
+import { Star, Search, BookOpen, Coffee, Scroll, Users, Languages, Map, Heart, Eye, Filter } from 'lucide-react';
+import { useState, useMemo } from 'react';
 
 interface Book {
   id: number;
   title: string;
   author: string;
   category: string;
+  language: 'Amharic' | 'Afaan Oromo' | 'English' | 'Bilingual';
   price: number;
   image: string;
   rating: number;
   description: string;
+  isClassic?: boolean;
 }
 
 interface FeaturedProductsProps {
@@ -17,174 +19,362 @@ interface FeaturedProductsProps {
 }
 
 const books: Book[] = [
+  // HISTORY
   {
     id: 1,
-    title: "The Ancient Wisdom of Ethiopia",
-    author: "Dr. Tadesse Amare",
+    title: "Ethiopia: A History",
+    author: "Harold G. Marcus",
     category: "History",
-    price: 29.99,
-    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=400",
+    language: "English",
+    price: 950,
+    image: "src/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
     rating: 5,
-    description: "A comprehensive exploration of Ethiopian history and culture spanning millennia."
+    description: "The definitive guide to the Ethiopian state, from the ancient Axumite Empire to the modern era."
   },
   {
     id: 2,
-    title: "Modern Ethiopian Literature",
-    author: "Almaz Desta",
-    category: "Literature",
-    price: 24.99,
-    image: "https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=400",
+    title: "A History of Modern Ethiopia",
+    author: "Bahru Zewde",
+    category: "History",
+    language: "English",
+    price: 880,
+    image: "src/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
     rating: 5,
-    description: "Contemporary voices in Ethiopian literature, showcasing diverse perspectives."
+    description: "The essential textbook for understanding the formation of the modern nation and its political evolution (1855–1991)."
   },
   {
     id: 3,
-    title: "Business in the Horn of Africa",
-    author: "Girma Wolde",
-    category: "Business",
-    price: 34.99,
-    image: "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=400",
-    rating: 4,
-    description: "Strategic insights for entrepreneurs and business leaders in East Africa."
+    title: "Oromo Democracy",
+    author: "Asmarom Legesse",
+    category: "History",
+    language: "English",
+    price: 1100,
+    image: "src/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
+    rating: 5,
+    isClassic: true,
+    description: "A world-renowned study on the Gadaa System, showcasing the brilliance of Oromo democratic institutions."
   },
+  // LITERATURE
   {
     id: 4,
-    title: "Amharic Language Mastery",
-    author: "Prof. Kebede",
-    category: "Language",
-    price: 19.99,
-    image: "https://images.pexels.com/photos/1559827/pexels-photo-1559827.jpeg?auto=compress&cs=tinysrgb&w=400",
+    title: "Fikir Eske Mekabir",
+    author: "Haddis Alemayehu",
+    category: "Literature",
+    language: "Amharic",
+    price: 750,
+    image: "src/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
     rating: 5,
-    description: "Complete guide to learning and mastering Amharic language and writing."
+    isClassic: true,
+    description: "The masterpiece of Amharic literature—an epic story of love, social class, and the struggle against feudalism."
   },
   {
     id: 5,
-    title: "Children's Stories from Ethiopia",
-    author: "Selam Mekonnen",
-    category: "Children",
-    price: 14.99,
-    image: "https://images.pexels.com/photos/3714897/pexels-photo-3714897.jpeg?auto=compress&cs=tinysrgb&w=400",
+    title: "Godannisa (The Scar)",
+    author: "Kuusaa Gadaa",
+    category: "Literature",
+    language: "Afaan Oromo",
+    price: 620,
+    image: "src/images/Godannisa_ by_Kuusaa_Gadaa.jpeg",  
     rating: 5,
-    description: "Delightful tales that educate and entertain young readers."
+    isClassic: true,
+    description: "The first published novel in Afaan Oromo. A historic milestone representing the soul and identity of the Oromo people."
   },
   {
     id: 6,
-    title: "Ethiopian Coffee Culture",
-    author: "Yohannes Assefa",
-    category: "Culture",
-    price: 22.99,
-    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=400",
+    title: "Adefris (አዴፍርስ)",
+    author: "Dagnachew Worku",
+    category: "Literature",
+    language: "Amharic",
+    price: 680,
+    image: "src/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
+    rating: 4,
+    description: "A complex modernist novel that brilliantly captures the tension between tradition and the 1960s revolution."
+  },
+  // BUSINESS
+  {
+    id: 7,
+    title: "Made in Ethiopia",
+    author: "Arkebe Oqubay",
+    category: "Business",
+    language: "English",
+    price: 1250,
+    image: "src/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
     rating: 5,
-    description: "Discover the rich traditions and heritage of Ethiopian coffee ceremonies."
+    description: "A critical analysis of industrial policy and the roadmap for transforming Ethiopia into a manufacturing hub."
+  },
+  {
+    id: 8,
+    title: "Entrepreneurial Ecosystem",
+    author: "Mulu Gebreeyesus",
+    category: "Business",
+    language: "English",
+    price: 920,
+    image: "src/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
+    rating: 4,
+    description: "Explores digital transformation, tech startups, and the evolving business landscape in Addis Ababa."
+  },
+  {
+    id: 9,
+    title: "My Life, My Vision",
+    author: "Bulcha Demeksa",
+    category: "Business",
+    language: "English",
+    price: 980,
+    image:"src/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
+    rating: 5,
+    description: "Insights from a top economist on banking, development, and Oromo economic participation."
+  },
+  // LANGUAGE
+{
+  id: 10,
+  title: "Selam! Learn Amharic",
+  author: "Dawit Lambebo Gulta",
+  category: "Language",
+  language: "Amharic",
+  price: 600,
+  image: "src/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg", 
+  rating: 5,
+  description: "A practical beginner-friendly guide to learning Amharic vocabulary, grammar, and conversational skills."
+},
+{
+  id: 11,
+  title: "Afan Oromo: A Guide to Speaking the Language of Oromo People",
+  author: "Abebe Bulto & Andrew Tadross",
+  category: "Language",
+  language: "Afaan Oromo",
+  price: 580,
+  image: "src/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg", 
+  rating: 5,
+  description: "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary, and culture."
+},
+{
+  id: 12,
+  title: "Amharic: My First Words",
+  author: "Melkam Media",
+  category: "Language",
+  language: "Amharic",
+  price: 450,
+  image: "src/images/Amharic_My_First_Words_by_Melkam_Media.jpeg", 
+  rating: 5,
+  description: "A fun and colorful picture book for beginners to start learning essential Amharic words."
+},
+
+  // CHILDREN – FOLK TALES
+{
+  id: 13,
+  title: "The Little Girl and The Three Lions",
+  author: "Kiazpora",
+  category: "Children",
+  language: "Afaan Oromo",
+  price: 380,
+  image: "src/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
+  rating: 5,
+  description: "An engaging Oromo folktale adaptation about a little girl’s adventure with three lions — perfect for young readers learning language and culture."
+},
+{
+  id: 14,
+  title: "The Runaway Injera: An Ethiopian Fairy Tale",
+  author: "Various / Traditional",
+  category: "Children",
+  language: "Bilingual",
+  price: 350,
+  image: "src/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
+  rating: 5,
+  description: "A lively retelling of a beloved Ethiopian folk tale inspired by the classic runaway food story, filled with cultural charm and playful illustrations."
+},
+{
+  id: 15,
+  title: "ፀሃይ እና ንፋስ እንዲሁም ሌሎች ተረቶች",
+  author: "Mosisa Wakshum",
+  category: "Children",
+  language: "Amharic",
+  price: 400,
+  image: "src/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
+  rating: 5,
+  description: "An Amharic collection of short folktales for children, including the story of the Sun and Wind and other traditional moral tales."
+}
+,
+  // CULTURE
+  {
+    id: 16,
+    title: "The Flavors of Ethiopia",
+    author: "Chef Yohanis",
+    category: "Culture",
+    language: "English",
+    price: 1100,
+    image: "src/images/The Flavors of Ethiopia.jpg",
+    rating: 5,
+    description: "An award-winning cookbook and cultural guide celebrating the art of Gursha and traditional recipes."
+  },
+ {
+  id: 17,
+  title: "አማርኛ የቡና ታሪክ እና ባህላዊ ሥነ ሥርዓት",
+  author: "ማህበረ ‑ ባህላዊ ጥናት ተቋማት",
+  category: "Culture",
+  language: "Amharic",
+  price: 520,
+  image: "src/images/አማርኛ የቡና ታሪክ እና ባህላዊ ሥነ ሥርዓት መፅሃፍ ካቫር.jpg",
+  rating: 5,
+  description: "A detailed guide in Amharic exploring the rich history and cultural rituals of Ethiopian coffee traditions and ceremonies."
+}
+,
+  {
+    id: 18,
+    title: "Oromia: An Introduction",
+    author: "Gadaa Melbaa",
+    category: "Culture",
+    language: "English",
+    price: 600,
+    image: "src/images/Oromia_An Introduction.jpg",
+    rating: 5,
+    description: "A foundational look at Oromo social values, Siinqee, and the core philosophies of Gadaa culture."
   }
 ];
 
 export default function FeaturedProducts({ onProductClick }: FeaturedProductsProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [selectedLang, setSelectedLang] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [wishlist, setWishlist] = useState<number[]>([]);
 
-  const categories = ["All", ...new Set(books.map(b => b.category))];
+  const categories = ["All", "History", "Literature", "Business", "Language", "Children", "Culture"];
+  const languages = ["All", "Amharic", "Afaan Oromo", "English", "Bilingual"];
 
-  let filteredBooks = selectedCategory === "All"
-    ? books
-    : books.filter(b => b.category === selectedCategory);
+  const toggleWishlist = (e: React.MouseEvent, id: number) => {
+    e.stopPropagation();
+    setWishlist(prev => prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]);
+  };
 
-  if (searchQuery) {
-    filteredBooks = filteredBooks.filter(b =>
-      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      b.author.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }
-
+  const filteredBooks = useMemo(() => {
+    return books.filter(book => {
+      const categoryMatch = selectedCategory === "All" || book.category === selectedCategory;
+      const langMatch = selectedLang === "All" || book.language === selectedLang;
+      const searchMatch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          book.author.toLowerCase().includes(searchQuery.toLowerCase());
+      return categoryMatch && langMatch && searchMatch;
+    });
+  }, [selectedCategory, selectedLang, searchQuery]);
 
   return (
-    <section id="featured-products" className="py-16 px-4 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2 text-center">
-          Our Collection
-        </h2>
-        <p className="text-center text-gray-600 mb-8">
-          Handpicked books for every reader and interest
-        </p>
+    <section className="bg-[#fdfaf6] min-h-screen">
+      
+      <div className="relative h-[280px] w-full overflow-hidden bg-[#f3ede4] mb-12">
+        <div className="absolute inset-0 opacity-10">
+           <div className="w-full h-full bg-[radial-gradient(#8b5e3c_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        </div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+          <div className="flex gap-2 mb-4">
+            <div className="w-8 h-1 bg-[#009b48] rounded-full"></div>
+            <div className="w-8 h-1 bg-[#ffff00] rounded-full"></div>
+            <div className="w-8 h-1 bg-[#da121a] rounded-full"></div>
+          </div>
+          <h1 className="text-3xl md:text-5xl font-serif font-bold text-stone-900 mb-3">
+            Ethiopia's Living Library
+          </h1>
+          <p className="text-stone-600 text-sm md:text-base max-w-2xl italic">
+            "A book is like a garden carried in the pocket." — Traditional Wisdom.
+            Discover classics in Amharic, Afaan Oromo, and English.
+          </p>
+        </div>
+      </div>
 
-        <div className="mb-8">
-          <div className="relative">
-            <Search className="absolute left-4 top-3.5 w-5 h-5 text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search by title or author..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-700"
-            />
+      <div className="max-w-7xl mx-auto px-4 pb-24">
+        
+        <div className="bg-white p-5 rounded-2xl shadow-sm border border-stone-100 mb-10 -mt-16 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" />
+              <input
+                type="text"
+                placeholder="Search classics..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border-transparent focus:bg-white focus:ring-2 focus:ring-amber-800/20 rounded-lg outline-none transition-all text-sm"
+              />
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Filter className="w-4 h-4 text-amber-800" />
+              <select 
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full p-2.5 bg-stone-50 rounded-lg outline-none border-transparent focus:ring-2 focus:ring-amber-800/20 text-sm"
+              >
+                {categories.map(c => <option key={c} value={c}>{c === "All" ? "All Categories" : c}</option>)}
+              </select>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Languages className="w-4 h-4 text-amber-800" />
+              <select 
+                value={selectedLang}
+                onChange={(e) => setSelectedLang(e.target.value)}
+                className="w-full p-2.5 bg-stone-50 rounded-lg outline-none border-transparent focus:ring-2 focus:ring-amber-800/20 text-sm"
+              >
+                {languages.map(l => <option key={l} value={l}>{l === "All" ? "All Languages" : l}</option>)}
+              </select>
+            </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-6 py-2 rounded-full font-medium transition-all ${
-                selectedCategory === cat
-                  ? "bg-amber-700 text-white shadow-md"
-                  : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filteredBooks.map(book => (
             <div
               key={book.id}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100 flex flex-col group overflow-hidden h-full"
             >
-              <div
-                className="h-64 overflow-hidden bg-gray-200 cursor-pointer"
-                onClick={() => onProductClick(book)}
-              >
+             
+              <div className="relative aspect-[3/2] overflow-hidden">
                 <img
                   src={book.image}
                   alt={book.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-amber-700 bg-amber-50 px-3 py-1 rounded-full">
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onProductClick(book); }}
+                    className="p-2 bg-white rounded-full text-stone-900 hover:bg-amber-800 hover:text-white transition-colors"
+                  >
+                    <Eye className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={(e) => toggleWishlist(e, book.id)}
+                    className={`p-2 rounded-full transition-colors ${wishlist.includes(book.id) ? 'bg-red-500 text-white' : 'bg-white text-stone-900'}`}
+                  >
+                    <Heart className={`w-4 h-4 ${wishlist.includes(book.id) ? 'fill-current' : ''}`} />
+                  </button>
+                </div>
+                <div className="absolute top-2 left-2 flex flex-col gap-1">
+                  <span className="bg-amber-800/90 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
                     {book.category}
                   </span>
-                  <div className="flex items-center gap-1">
-                    {[...Array(book.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
+                  {book.isClassic && (
+                    <span className="bg-[#009b48]/90 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">
+                      Classic
+                    </span>
+                  )}
                 </div>
+              </div>
 
-                <h3
-                  className="text-lg font-bold text-gray-900 mb-1 line-clamp-2 cursor-pointer hover:text-amber-700"
-                  onClick={() => onProductClick(book)}
-                >
+              
+              <div className="p-3.5 flex flex-col flex-grow">
+                <h3 className="text-sm font-serif font-bold text-stone-900 line-clamp-1 mb-0.5 group-hover:text-amber-800 transition-colors">
                   {book.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-3">{book.author}</p>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <p className="text-[10px] text-stone-400 font-medium mb-1.5 line-clamp-1">by {book.author}</p>
+                
+                <p className="text-stone-600 text-[12px] line-clamp-2 leading-snug mb-3 h-8">
                   {book.description}
                 </p>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-amber-700">
-                    ${book.price}
-                  </span>
-                  <button
+                <div className="mt-auto flex items-center justify-between pt-2.5 border-t border-stone-50">
+                  <span className="text-sm font-bold text-stone-900">ETB {book.price}</span>
+                  <button 
                     onClick={() => onProductClick(book)}
-                    className="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-lg transition-colors font-medium"
+                    className="text-amber-800 text-[11px] font-bold flex items-center gap-1"
                   >
-                    View Details
+                    View <BookOpen className="w-3 h-3" />
                   </button>
                 </div>
               </div>
@@ -193,8 +383,9 @@ export default function FeaturedProducts({ onProductClick }: FeaturedProductsPro
         </div>
 
         {filteredBooks.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No books found matching your search.</p>
+          <div className="text-center py-20">
+            <Search className="w-8 h-8 text-stone-200 mx-auto mb-3" />
+            <h3 className="text-md font-serif font-bold text-stone-800">No books found</h3>
           </div>
         )}
       </div>
