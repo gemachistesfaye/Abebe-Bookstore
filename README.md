@@ -167,7 +167,7 @@ This is a front-end only application — there is no backend or payment processi
 |---|---|
 | Phone | [+251 97 660 1074](tel:+251976601074) |
 | Email | [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com) |
-| Telegram | [@GemachisTesfaye](https://t.me/GemachisTesfaye) |
+| Telegram | [@gemachisTech](https://t.me/gemachisTech) |
 | GitHub | [gemachistesfaye](https://github.com/gemachistesfaye) |
 
 ---
