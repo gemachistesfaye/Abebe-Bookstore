@@ -19,10 +19,12 @@ describe('Footer', () => {
     expect(screen.getByText('English Books')).toBeInTheDocument();
   });
 
-  it('renders contact info', () => {
+  it('renders developer info', () => {
     renderWithRouter(<Footer />);
-    expect(screen.getByText('+251 91 234 5678')).toBeInTheDocument();
-    expect(screen.getByText('info@abebebookstore.com')).toBeInTheDocument();
+    expect(screen.getByText('+251 97 660 1074')).toBeInTheDocument();
+    expect(screen.getByText('gemachistesfaye36@gmail.com')).toBeInTheDocument();
+    expect(screen.getByText('Telegram Channel')).toBeInTheDocument();
+    expect(screen.getByText('GitHub Profile')).toBeInTheDocument();
   });
 
   it('renders copyright', () => {

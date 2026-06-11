@@ -89,7 +89,7 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <ScrollReveal>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
@@ -123,7 +123,7 @@ export default function Contact() {
           </ScrollReveal>
 
           <ScrollReveal>
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-4">
               <AnimatePresence mode="wait">
                 {showSuccess ? (
                   <motion.div

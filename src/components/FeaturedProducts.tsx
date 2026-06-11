@@ -1,6 +1,6 @@
 import { Search, BookOpen, Heart, Eye, Filter, Languages, ShoppingCart, ArrowUpDown, ToggleLeft, ToggleRight, PackageOpen } from 'lucide-react';
-import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useMemo, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { books } from '../data/books';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,14 +10,49 @@ const languages = ["All", "Amharic", "Afaan Oromo", "English", "Bilingual"];
 type SortOption = "default" | "price-asc" | "price-desc" | "rating-desc" | "title-asc";
 
 export default function FeaturedProducts() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const categoryParam = searchParams.get('category');
+  const sortParam = searchParams.get('sort');
+
+  const mapCategory = (cat: string | null): string => {
+    if (!cat || cat === 'all') return 'All';
+    const map: Record<string, string> = {
+      amharic: 'Literature', oromo: 'Language', english: 'Literature',
+      children: 'Children', history: 'History', business: 'Business',
+    };
+    return map[cat] || 'All';
+  };
+
+  const mapSort = (s: string | null): SortOption => {
+    if (!s) return 'default';
+    const map: Record<string, SortOption> = {
+      newest: 'default', rating: 'rating-desc',
+      'price-low': 'price-asc', 'price-high': 'price-desc',
+    };
+    return map[s] || 'default';
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(mapCategory(categoryParam));
   const [selectedLang, setSelectedLang] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [sortBy, setSortBy] = useState<SortOption>("default");
+  const [sortBy, setSortBy] = useState<SortOption>(mapSort(sortParam));
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [wishlistPop, setWishlistPop] = useState<number | null>(null);
   const { dispatch, isInWishlist } = useCart();
+
+  useEffect(() => {
+    const cat = mapCategory(searchParams.get('category'));
+    const sort = mapSort(searchParams.get('sort'));
+    if (cat !== 'All') setSelectedCategory(cat);
+    if (sort !== 'default') setSortBy(sort);
+    if (searchParams.get('category') || searchParams.get('sort')) {
+      setTimeout(() => {
+        document.getElementById('featured-products')?.scrollIntoView({ behavior: 'smooth' });
+      }, 150);
+    }
+  }, [searchParams]);
 
   const toggleWishlist = (e: React.MouseEvent, id: number) => {
     e.preventDefault();

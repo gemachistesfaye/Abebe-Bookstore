@@ -1,9 +1,27 @@
-import { BookOpen, Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
+import { BookOpen, Phone, Mail, Send, ArrowUp } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const categories = [
+  { name: 'Amharic Literature', param: 'amharic' },
+  { name: 'Afaan Oromo Books', param: 'oromo' },
+  { name: 'English Books', param: 'english' },
+  { name: "Children's Books", param: 'children' },
+  { name: 'Ethiopian History', param: 'history' },
+  { name: 'Business & Economics', param: 'business' },
+];
+
+const quickLinks = [
+  { name: 'About Us', href: '#about' },
+  { name: 'New Arrivals', param: 'sort', value: 'newest' },
+  { name: 'Best Sellers', param: 'sort', value: 'rating' },
+  { name: 'Contact', href: '#contact' },
+  { name: 'FAQ', href: '#faq' },
+];
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 600);
@@ -11,10 +29,35 @@ export default function Footer() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCategoryClick = (param: string) => {
+    navigate(`/?category=${param}`);
+    setTimeout(() => scrollTo('featured-products'), 100);
+  };
+
+  const handleSortClick = (param: string, value: string) => {
+    navigate(`/?${param}=${value}`);
+    setTimeout(() => scrollTo('featured-products'), 100);
+  };
+
+  const handleHashClick = (href: string) => {
+    const id = href.replace('#', '');
+    if (window.location.pathname === '/') {
+      scrollTo(id);
+    } else {
+      navigate('/');
+      setTimeout(() => scrollTo(id), 100);
+    }
+  };
+
   return (
-    <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300 py-16 px-4 relative transition-colors">
+    <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300 pt-16 pb-6 px-4 relative transition-colors">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
           <div>
             <div className="flex items-center mb-4">
               <BookOpen className="w-6 h-6 text-amber-500 mr-2" />
@@ -33,9 +76,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Categories</h4>
             <ul className="space-y-2 text-sm">
-              {['Amharic Literature', 'Afaan Oromo Books', 'English Books', 'Children\'s Books', 'Ethiopian History', 'Business & Economics'].map(c => (
-                <li key={c}>
-                  <button className="hover:text-amber-500 transition-colors text-left">{c}</button>
+              {categories.map(c => (
+                <li key={c.name}>
+                  <button onClick={() => handleCategoryClick(c.param)} className="hover:text-amber-500 transition-colors text-left">{c.name}</button>
                 </li>
               ))}
             </ul>
@@ -44,53 +87,46 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              {['About Us', 'New Arrivals', 'Best Sellers', 'Contact', 'FAQ'].map(l => (
-                <li key={l}>
-                  <button className="hover:text-amber-500 transition-colors text-left">{l}</button>
+              {quickLinks.map(l => (
+                <li key={l.name}>
+                  {l.href ? (
+                    <button onClick={() => handleHashClick(l.href)} className="hover:text-amber-500 transition-colors text-left">{l.name}</button>
+                  ) : (
+                    <button onClick={() => handleSortClick(l.param!, l.value!)} className="hover:text-amber-500 transition-colors text-left">{l.name}</button>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Newsletter</h4>
-            <p className="text-sm text-stone-400 mb-3">Get updates on new arrivals and special offers.</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                className="flex-1 p-2.5 bg-stone-800 dark:bg-stone-900 rounded-lg border border-stone-700 focus:border-amber-500 outline-none text-sm text-white placeholder-stone-500 transition-colors"
-              />
-              <button className="bg-amber-700 hover:bg-amber-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                Join
-              </button>
-            </div>
-            <div className="mt-6 space-y-2 text-sm">
-              <div className="flex items-center gap-2">
+            <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Developer</h4>
+            <div className="space-y-3 text-sm">
+              <a href="tel:+251976601074" className="flex items-center gap-2 hover:text-amber-500 transition-colors">
                 <Phone className="w-4 h-4 text-amber-500" />
-                <span>+251 91 234 5678</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span>+251 97 660 1074</span>
+              </a>
+              <a href="mailto:gemachistesfaye36@gmail.com" className="flex items-center gap-2 hover:text-amber-500 transition-colors">
                 <Mail className="w-4 h-4 text-amber-500" />
-                <span>info@abebebookstore.com</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-amber-500" />
-                <span>Madjet Street, Harar, Ethiopia</span>
-              </div>
+                <span>gemachistesfaye36@gmail.com</span>
+              </a>
+              <a href="https://t.me/GemachisTech" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-amber-500 transition-colors">
+                <Send className="w-4 h-4 text-amber-500" />
+                <span>Telegram Channel</span>
+              </a>
+              <a href="https://github.com/gemachistesfaye" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-amber-500 transition-colors">
+                <svg className="w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub Profile</span>
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-stone-500">© 2024 Abebe Bookstore. All rights reserved.</p>
-          <p className="text-xs text-stone-600 italic">Built with ❤ in Harar, Ethiopia</p>
+        <div className="border-t border-stone-800 pt-4">
+          <p className="text-xs text-stone-400 text-center">© {new Date().getFullYear()} Abebe Bookstore. All rights reserved.</p>
         </div>
       </div>
 
-      {/* Back to top */}
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
