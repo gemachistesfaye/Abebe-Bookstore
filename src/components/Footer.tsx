@@ -21,12 +21,19 @@ const quickLinks = [
 
 export default function Footer() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => setShowBackToTop(window.scrollY > 600);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -55,6 +62,7 @@ export default function Footer() {
   };
 
   return (
+    <>
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300 pt-16 pb-6 px-4 relative transition-colors">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
@@ -127,14 +135,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {showBackToTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 right-6 bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-full shadow-lg shadow-amber-700/30 transition-all hover:-translate-y-1 z-40 animate-fade-in-up"
-        >
-          <ArrowUp className="w-5 h-5" />
-        </button>
-      )}
     </footer>
+
+    {showBackToTop && isMobile && (
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-6 left-6 bg-amber-700 hover:bg-amber-800 text-white p-3 rounded-full shadow-lg shadow-amber-700/30 transition-all hover:-translate-y-1 z-40 animate-fade-in-up"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
+    )}
+    </>
   );
 }

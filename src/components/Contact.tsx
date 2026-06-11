@@ -89,7 +89,7 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
           <ScrollReveal className="col-span-1">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
