@@ -1,12 +1,10 @@
-# 📚 Abebe Bookstore
+# Abebe Bookstore 📚
 
-**Abebe Bookstore** is a modern, responsive web application for showcasing Ethiopian books, learning materials and cultural literature. The website allows users to browse categories, view book details and contact the store directly. It's built with **React**, **TypeScript** and **Tailwind CSS** for a fast and interactive experience.
+A modern, responsive bookstore web app for discovering Ethiopian books, cultural literature and learning materials — built with React, TypeScript and Tailwind CSS.
 
----
+> Browse books by category and language, add to cart and place your order with a single call.
 
-## Live Demo
-
-[Click here to view the live demo](https://abebebookstore.vercel.app/)
+**Live demo →** [abebebookstore.vercel.app](https://abebebookstore.vercel.app/)
 
 ---
 
@@ -14,91 +12,92 @@
 
 ### Desktop
 
-| | | |
+| 🏠 Home | ℹ️ About | 📚 Catalog |
 |:---:|:---:|:---:|
-| 🏠 **Home** | ℹ️ **About** | 📚 **Book Catalog** |
 | ![Home](public/screenshots/home.png) | ![About](public/screenshots/about.png) | ![Catalog](public/screenshots/book-catalogue.png) |
-| 📖 **Book Details** | 📝 **Contact** | 🛒 **Checkout** |
+
+| 📖 Book Details | 📝 Contact | 🛒 Checkout |
+|:---:|:---:|:---:|
 | ![Details](public/screenshots/book-details.png) | ![Contact](public/screenshots/contact.png) | ![Checkout](public/screenshots/checkout.png) |
 
 ### Mobile
 
-| | | |
+| 📱 Home | 📱 Catalog | 📱 Menu |
 |:---:|:---:|:---:|
-| 📱 **Mobile 1** | 📱 **Mobile 2** | 📱 **Mobile 3** |
 | ![Mobile 1](public/screenshots/mobile1.png) | ![Mobile 2](public/screenshots/mobile2.png) | ![Mobile 3](public/screenshots/mobile3.png) |
 
 ---
 
-## ✨ Features
+## Features ✨
 
-- **Browse Books:** Filter by category, language and search by title or author.
-- **Featured Products:** Highlighted classics and popular books.
-- **Book Details:** Detailed view with description, rating, price and in-library status.
-- **Wishlist:** Mark favorite books.
-- **Shopping Cart:** Add items, adjust quantities, proceed to checkout with call-to-order.
-- **Contact Section:** Users can send messages via a contact form, call, or reach via Telegram.
-- **Dark Mode:** Full dark mode support across all pages.
-- **Floating Social Media:** Facebook, Telegram, TikTok and Instagram links with animated expand (horizontal on desktop, vertical on mobile).
-- **Mobile Menu:** Slide-out hamburger menu with close button, dark mode toggle and call-to-order.
-- **Responsive Design:** Works across mobile, tablet and desktop.
-- **Scroll to Top:** Back-to-top button on mobile (left side).
-- **Developer Info:** Contact the developer via email, phone, Telegram or GitHub.
-
----
-
-## Book Categories
-
-- History
-- Literature
-- Business
-- Language
-- Children & Folktales
-- Culture
-
-Languages available include **Amharic**, **Afaan Oromo**, **English** and **Bilingual** books.
+- **Book catalog** — filter by category, language, search by title or author
+- **Book details** — full view with description, rating, price and availability
+- **Shopping cart** — add items, adjust quantities, slide-out cart drawer
+- **Checkout** — order summary with call-to-order flow
+- **Wishlist** — save favourite books across sessions
+- **Dark mode** — full dark/light theme toggle on all pages
+- **Animations** — smooth page transitions and scroll-reveal effects (Framer Motion)
+- **Floating social buttons** — Facebook, Telegram, TikTok, Instagram with animated expand
+- **Mobile menu** — slide-out nav with dark mode toggle and call-to-order button
+- **Scroll to top** — back-to-top button on mobile
+- **Contact form** — send a message via Formspree, or call and reach on Telegram
+- **FAQ section** — common questions answered in an accordion
+- **Responsive** — works on mobile, tablet and desktop
 
 ---
 
-## 🛠 Tech Stack
+## Book categories
 
-- **Frontend:** React, TypeScript
-- **Routing:** React Router
-- **Styling:** Tailwind CSS
-- **Icons:** Lucide React
-- **Animations:** Framer Motion
-- **Testing:** Vitest, React Testing Library
-- **Build Tool:** Vite
-- **Deployment:** Vercel
+| Category | Languages |
+|---|---|
+| History | Amharic, Afaan Oromo, English, Bilingual |
+| Literature | Amharic, Afaan Oromo, English, Bilingual |
+| Business | Amharic, English |
+| Language | Amharic, Afaan Oromo, English |
+| Children & Folktales | Amharic, Afaan Oromo, Bilingual |
+| Culture | Amharic, English, Bilingual |
 
 ---
 
-## Getting Started
+## Tech stack 🛠
 
-### Clone the repository:
+| Layer | Tools |
+|---|---|
+| Frontend | React, TypeScript |
+| Routing | React Router |
+| Styling | Tailwind CSS |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| State | React Context API + localStorage |
+| Testing | Vitest, React Testing Library |
+| Build | Vite |
+| Deployment | Vercel |
+| Contact form | Formspree |
+
+---
+
+## Getting started
 
 ```bash
 git clone https://github.com/gemachistesfaye/Abebe-Bookstore
 cd Abebe-Bookstore
-```
-
-Install dependencies:
-
-```bash
 npm install
-```
-
-Start the development server:
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Environment variables
+
+Create a `.env` file based on `.env.example`:
+
+```
+VITE_FORMSPREE_ID=your_formspree_id_here
+```
 
 ---
 
-### Available Scripts
+## Available scripts
 
 | Command | Description |
 |---|---|
@@ -112,104 +111,79 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 ---
 
-### Project Structure
+## Project structure
 
 ```
 Abebe-Bookstore/
 ├── public/
-│   ├── images/                  # Static book cover images
-│   └── screenshots/             # App screenshots for README
-│       ├── home.png
-│       ├── about.png
-│       ├── book-catalogue.png
-│       ├── book-details.png
-│       ├── contact.png
-│       ├── mobile1.png
-│       ├── mobile2.png
-│       └── mobile3.png
+│   ├── images/               # Book cover images
+│   └── screenshots/          # App screenshots for README
 ├── src/
 │   ├── components/
-│   │   ├── Navigation.tsx       # Sticky top navbar with mobile menu
-│   │   ├── Hero.tsx             # Hero banner section
-│   │   ├── FeaturedProducts.tsx # Product listing with search/filter
-│   │   ├── ProductDetails.tsx   # Individual book detail view
-│   │   ├── About.tsx            # About section
-│   │   ├── Contact.tsx          # Contact form + info
-│   │   ├── Footer.tsx           # Footer with links
-│   │   ├── CartDrawer.tsx       # Slide-out cart sidebar
-│   │   ├── CheckoutPage.tsx     # Checkout summary page
-│   │   ├── FloatingContactButtons.tsx # Social media buttons
-│   │   ├── DarkModeToggle.tsx   # Dark/light mode toggle
-│   │   ├── ScrollReveal.tsx     # Scroll animation wrapper
-│   │   ├── FAQ.tsx              # FAQ accordion section
-│   │   └── ErrorBoundary.tsx    # Error boundary component
+│   │   ├── Navigation.tsx        # Sticky navbar + mobile menu
+│   │   ├── Hero.tsx              # Hero banner
+│   │   ├── FeaturedProducts.tsx  # Book grid with search & filters
+│   │   ├── ProductDetails.tsx    # Individual book page
+│   │   ├── CartDrawer.tsx        # Slide-out cart sidebar
+│   │   ├── CheckoutPage.tsx      # Checkout summary
+│   │   ├── About.tsx             # About section
+│   │   ├── Contact.tsx           # Contact form + info
+│   │   ├── Footer.tsx            # Footer with links
+│   │   ├── FAQ.tsx               # FAQ accordion
+│   │   ├── FloatingContactButtons.tsx  # Social media buttons
+│   │   ├── DarkModeToggle.tsx    # Dark/light mode toggle
+│   │   ├── ScrollReveal.tsx      # Scroll animation wrapper
+│   │   └── ErrorBoundary.tsx     # Error boundary
 │   ├── context/
-│   │   └── CartContext.tsx       # Cart & wishlist state (localStorage)
+│   │   └── CartContext.tsx       # Cart + wishlist state (localStorage)
 │   ├── data/
-│   │   ├── books.json           # Book data (18 books)
-│   │   └── books.ts             # Typed wrapper for book data
+│   │   ├── books.json            # Book data
+│   │   └── books.ts              # Typed data wrapper
 │   ├── types/
-│   │   └── book.ts              # Book TypeScript interface
+│   │   └── book.ts               # Book TypeScript interface
 │   ├── test/
-│   │   └── setup.ts             # Test setup file
-│   ├── App.tsx                  # Root component with routing
-│   ├── main.tsx                 # Application entry point
-│   └── index.css                # Global styles (Tailwind)
-├── .github/
-│   ├── CODE_OF_CONDUCT.md       # Community guidelines
-│   ├── CONTRIBUTING.md           # Contribution guide
-│   ├── SECURITY.md              # Security policy
-│   └── LICENSE                  # MIT License (copy)
-├── .env.example                 # Environment variable template
-├── index.html                   # Vite HTML entry point
-├── LICENSE                      # MIT License
-├── package.json                 # Dependencies & scripts
-├── tsconfig.json                # TypeScript configuration
-├── vite.config.ts               # Vite configuration
-└── vitest.config.ts             # Vitest test configuration
+│   │   └── setup.ts              # Test setup
+│   ├── App.tsx                   # Root component + routing
+│   ├── main.tsx                  # App entry point
+│   └── index.css                 # Global styles (Tailwind)
+├── .env.example
+├── index.html
+├── package.json
+├── vite.config.ts
+└── vitest.config.ts
 ```
 
 ---
 
-## 💳 Payment
+## Payment 💳
 
-This is a **frontend-only** application. There is no backend or payment processing. Users can browse books and add them to cart, then call **[+251 97 660 1074](tel:+251976601074)** to place an order.
-
----
-
-## 📞 Contact & Developer Info
-
-- **Phone:** [+251 97 660 1074](tel:+251976601074)
-- **Email:** [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com)
-- **Telegram Channel:** [GemachisTesfaye](https://t.me/GemachisTesfaye)
-- **GitHub Profile:** [gemachistesfaye](https://github.com/gemachistesfaye)
+This is a front-end only application — there is no backend or payment processing. Users browse and add books to cart, then call **[+251 97 660 1074](tel:+251976601074)** to place their order.
 
 ---
 
-## 📄 License
+## Contact & developer info 📞
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 📋 Code of Conduct
-
-Please read our [Code of Conduct](.github/CODE_OF_CONDUCT.md) before contributing.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guide](.github/CONTRIBUTING.md) for details.
+| | |
+|---|---|
+| Phone | [+251 97 660 1074](tel:+251976601074) |
+| Email | [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com) |
+| Telegram | [@GemachisTesfaye](https://t.me/GemachisTesfaye) |
+| GitHub | [gemachistesfaye](https://github.com/gemachistesfaye) |
 
 ---
 
-## 🔒 Security
+## Contributing 🤝
 
-For security vulnerabilities, please see our [Security Policy](.github/SECURITY.md).
+Contributions are welcome! Please read the [Contributing Guide](.github/CONTRIBUTING.md) and [Code of Conduct](.github/CODE_OF_CONDUCT.md) before opening a pull request.
+
+For security vulnerabilities, see the [Security Policy](.github/SECURITY.md).
 
 ---
 
-## Developer
+## License
 
-Abebe Bookstore — Quality Ethiopian books, cultural stories and learning materials, built with love by Gemachis Tesfaye.
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+*Abebe Bookstore — quality Ethiopian books, cultural stories and learning materials, built with love by Gemachis Tesfaye.*

@@ -1,4 +1,4 @@
-# Contributing to Abebe Bookstore
+# Contributing to Abebe Bookstore 📚
 
 Thanks for your interest in contributing!
 
@@ -32,29 +32,29 @@ style(footer): improve responsive
 | test | Add tests |
 | chore | Build/tools |
 
-## Style Guide
+## Style Guide ✅
 
 - Use **TypeScript** for all components
 - Use **Tailwind CSS** for styling
 - Keep components **small** and **focused**
 - Write **meaningful** variable names
 
-## Found a Bug?
+## Found a Bug? 🐛
 
 Create an issue with:
 - Clear description
 - Steps to reproduce
 - Screenshots if applicable
 
-## Have an Idea?
+## Have an Idea? 💡
 
-Create an issue with `enhancement` label describing your feature idea.
+Create an issue with the `enhancement` label describing your feature idea.
 
-## Questions?
+## Questions? 📩
 
 - Email: gemachistesfaye36@gmail.com
 - Telegram: [GemachisTesfaye](https://t.me/GemachisTesfaye)
 
-## Thanks!
+## Thanks! 🙏
 
 Every contribution helps make this project better for the Ethiopian book community.
