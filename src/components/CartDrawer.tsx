@@ -1,4 +1,4 @@
-import { X, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react';
+import { X, Minus, Plus, ShoppingBag, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -80,10 +80,10 @@ export default function CartDrawer() {
                             className="p-1 bg-white dark:bg-stone-700 rounded border border-stone-200 dark:border-stone-600 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-600 transition-colors">
                             <Plus className="w-3 h-3" />
                           </button>
-                          <button onClick={() => dispatch({ type: 'REMOVE_FROM_CART', bookId: item.book.id })}
-                            className="ml-auto p-1 text-red-400 hover:text-red-600 transition-colors">
-                            <Trash2 className="w-4 h-4" />
-                          </button>
+                          <a href="tel:+251976601074"
+                            className="ml-auto flex items-center gap-1 px-2 py-1 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-500 rounded text-xs font-medium hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors">
+                            <Phone className="w-3 h-3" /> Call to Order
+                          </a>
                         </div>
                       </div>
                     </motion.div>

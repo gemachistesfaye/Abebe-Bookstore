@@ -65,7 +65,7 @@ export default function Footer() {
     <>
     <footer className="bg-stone-900 dark:bg-stone-950 text-stone-300 pt-16 pb-6 px-4 relative transition-colors">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-6">
           <div>
             <div className="flex items-center mb-4">
               <BookOpen className="w-6 h-6 text-amber-500 mr-2" />
@@ -81,7 +81,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Categories</h4>
             <ul className="space-y-2 text-sm">
               {categories.map(c => (
@@ -92,7 +92,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="font-bold text-white mb-4 text-sm tracking-wider uppercase">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {quickLinks.map(l => (

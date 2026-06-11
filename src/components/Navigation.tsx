@@ -1,4 +1,4 @@
-import { BookOpen, Menu, X, ShoppingBag } from 'lucide-react';
+import { BookOpen, Menu, X, ShoppingBag, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
@@ -30,6 +30,15 @@ export default function Navigation() {
     if (cartCount > 0) setBadgeKey(prev => prev + 1);
   }, [cartCount]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
   const scrollToSection = (id: string | null) => {
     if (!id) {
       navigate('/');
@@ -46,6 +55,7 @@ export default function Navigation() {
   };
 
   return (
+    <>
     <nav className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
         ? 'bg-white/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-md'
@@ -130,6 +140,7 @@ export default function Navigation() {
           </div>
         </div>
       </div>
+    </nav>
 
       {/* Mobile menu - slides from right */}
       <AnimatePresence>
@@ -139,7 +150,7 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 z-40 md:hidden"
+              className="fixed inset-0 bg-black/40 z-[60] md:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
@@ -147,9 +158,18 @@ export default function Navigation() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 h-full w-64 bg-white dark:bg-stone-900 shadow-xl z-50 md:hidden p-6 pt-20"
+              className="fixed right-0 top-0 h-full w-72 bg-white dark:bg-stone-900 shadow-xl z-[70] md:hidden flex flex-col"
             >
-              <div className="space-y-2">
+              <div className="flex items-center justify-between p-4 border-b border-stone-200 dark:border-stone-700">
+                <span className="font-bold text-stone-900 dark:text-white">Menu</span>
+                <div className="flex items-center gap-2">
+                  <DarkModeToggle />
+                  <button onClick={() => setIsOpen(false)} className="p-2 text-stone-500 hover:text-stone-700 dark:text-stone-400 dark:hover:text-stone-200 transition-colors">
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-4 space-y-1 flex-1">
                 {navLinks.map((link, i) => (
                   <motion.button
                     key={link.label}
@@ -157,16 +177,21 @@ export default function Navigation() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
                     onClick={() => scrollToSection(link.id)}
-                    className="block w-full text-left py-3 text-gray-700 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 font-medium text-lg border-b border-stone-100 dark:border-stone-800 transition-colors"
+                    className="block w-full text-left py-3 px-3 text-stone-700 dark:text-stone-300 hover:text-amber-700 dark:hover:text-amber-500 hover:bg-stone-50 dark:hover:bg-stone-800 font-medium text-base rounded-lg transition-colors"
                   >
                     {link.label}
                   </motion.button>
                 ))}
               </div>
+              <div className="p-4 border-t border-stone-200 dark:border-stone-700">
+                <a href="tel:+251976601074" className="flex items-center justify-center gap-2 w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 rounded-full transition-colors">
+                  <Phone className="w-4 h-4" /> Call to Order
+                </a>
+              </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }
