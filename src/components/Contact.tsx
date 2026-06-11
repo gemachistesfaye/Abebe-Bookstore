@@ -17,7 +17,7 @@ export default function Contact() {
     setError(null);
 
     try {
-      const response = await fetch('https://formspree.io/f/xgozaaok', {
+      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -32,9 +32,9 @@ export default function Contact() {
       setSuccess(true);
       setFormData({ name: '', email: '', message: '' });
 
-      setTimeout(() => setSuccess(false), 5000); 
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong.');
+      setTimeout(() => setSuccess(false), 5000);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
     } finally {
       setSubmitting(false);
     }
@@ -51,7 +51,6 @@ export default function Contact() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {}
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-6">
               Contact Information
@@ -62,7 +61,7 @@ export default function Contact() {
                 <Phone className="w-6 h-6 text-amber-600 mr-4 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">+251 000 000 0000</p>
+                  <p className="text-gray-600">+251 97 660 1074</p>
                 </div>
               </div>
 
@@ -100,7 +99,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

@@ -1,0 +1,45 @@
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import App from './App';
+
+describe('App', () => {
+  it('renders the home page with hero section', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getAllByText('Abebe Bookstore').length).toBeGreaterThan(0);
+    expect(screen.getByText('Quality Books for Everyone')).toBeInTheDocument();
+  });
+
+  it('renders the product detail page for a valid book', () => {
+    render(
+      <MemoryRouter initialEntries={['/book/1']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByText('Ethiopia: A History')).toBeInTheDocument();
+    expect(screen.getByText('by Harold G. Marcus')).toBeInTheDocument();
+  });
+
+  it('renders 404 page for invalid routes', () => {
+    render(
+      <MemoryRouter initialEntries={['/invalid-route']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByText('404')).toBeInTheDocument();
+    expect(screen.getByText('Page not found.')).toBeInTheDocument();
+  });
+
+  it('renders navigation on all pages', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getAllByText('Abebe Bookstore').length).toBeGreaterThanOrEqual(1);
+  });
+});

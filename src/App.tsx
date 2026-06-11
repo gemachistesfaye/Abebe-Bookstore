@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import FeaturedProducts from './components/FeaturedProducts';
@@ -8,54 +8,38 @@ import Footer from './components/Footer';
 import FloatingContactButtons from './components/FloatingContactButtons';
 import ProductDetails from './components/ProductDetails';
 
-interface Book {
-  id: number;
-  title: string;
-  author: string;
-  category: string;
-  price: number;
-  image: string;
-  rating: number;
-  description: string;
-}
-
-function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'product'>('home');
-  const [selectedProduct, setSelectedProduct] = useState<Book | null>(null);
-  const [scrollY, setScrollY] = useState(0); 
-
-  const handleProductClick = (product: Book) => {
-    setScrollY(window.scrollY); 
-    setSelectedProduct(product);
-    setCurrentPage('product');
-    window.scrollTo(0, 0); 
-  };
-
-  const handleBackToHome = () => {
-    setCurrentPage('home');
-    setSelectedProduct(null);
-    window.scrollTo(0, scrollY); 
-  };
-
+function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-
-      {currentPage === 'home' ? (
-        <>
-          <Hero />
-          <FeaturedProducts onProductClick={handleProductClick} />
-          <About />
-          <Contact />
-          <Footer />
-          <FloatingContactButtons />
-        </>
-      ) : (
-        selectedProduct && <ProductDetails book={selectedProduct} onBack={handleBackToHome} />
-      )}
-    </div>
+    <>
+      <Hero />
+      <FeaturedProducts />
+      <About />
+      <Contact />
+      <Footer />
+      <FloatingContactButtons />
+    </>
   );
 }
 
+function App() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/book/:id" element={<ProductDetails />} />
+        <Route path="*" element={
+          <div className="min-h-screen bg-[#fdfaf6] flex flex-col items-center justify-center p-4">
+            <h1 className="text-4xl font-bold text-stone-900 mb-4">404</h1>
+            <p className="text-stone-500 mb-4">Page not found.</p>
+            <a href="/" className="text-amber-800 font-medium hover:underline">
+              Back to Home
+            </a>
+          </div>
+        } />
+      </Routes>
+    </div>
+  );
+}
 
 export default App;

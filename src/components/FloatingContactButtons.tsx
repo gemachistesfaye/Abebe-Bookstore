@@ -1,13 +1,45 @@
-import { MessageCircle, Facebook } from 'lucide-react';
+import React from 'react';
+import { MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 interface ContactButton {
   id: string;
   name: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
   color: string;
   url: string;
 }
+
+const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const TelegramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M22 2L11 13" />
+    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+  </svg>
+);
 
 export default function FloatingContactButtons() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,14 +48,14 @@ export default function FloatingContactButtons() {
     {
       id: 'facebook',
       name: 'Facebook',
-      icon: <Facebook className="w-6 h-6" />,
+      icon: <FacebookIcon className="w-6 h-6" />,
       color: 'bg-blue-600 hover:bg-blue-700',
       url: 'https://www.facebook.com/abebebookstore',
     },
     {
       id: 'telegram',
       name: 'Telegram',
-      icon: <i className="bi bi-telegram" />,
+      icon: <TelegramIcon className="w-6 h-6" />,
       color: 'bg-sky-500 hover:bg-sky-600',
       url: 'https://t.me/abebebookstore',
     },
