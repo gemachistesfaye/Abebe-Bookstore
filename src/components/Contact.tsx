@@ -64,10 +64,10 @@ export default function Contact() {
   };
 
   const inputClass = (field: string) =>
-    `w-full p-3 bg-stone-50 dark:bg-stone-700 border rounded-lg outline-none text-sm text-stone-900 dark:text-white transition-all ${
+    `w-full p-4 bg-stone-50 dark:bg-stone-700 border rounded-xl outline-none text-stone-900 dark:text-white transition-all ${
       errors[field]
         ? 'border-red-400 focus:ring-2 focus:ring-red-200'
-        : 'border-transparent focus:bg-white dark:focus:bg-stone-600 focus:ring-2 focus:ring-amber-800/20'
+        : 'border-stone-200 dark:border-stone-600 focus:border-amber-500 focus:bg-white dark:focus:bg-stone-600 focus:ring-2 focus:ring-amber-800/20'
     } ${shaking === field ? 'animate-shake' : ''} placeholder-stone-400`;
 
   return (
@@ -90,7 +90,7 @@ export default function Contact() {
         </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          <ScrollReveal>
+          <ScrollReveal className="col-span-1">
             <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
@@ -122,8 +122,8 @@ export default function Contact() {
             </div>
           </ScrollReveal>
 
-          <ScrollReveal>
-            <div className="lg:col-span-4">
+          <ScrollReveal className="col-span-1 lg:col-span-4">
+            <div>
               <AnimatePresence mode="wait">
                 {showSuccess ? (
                   <motion.div
@@ -155,7 +155,7 @@ export default function Contact() {
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
-                    className="bg-white dark:bg-stone-800 p-8 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 space-y-5 transition-colors"
+                    className="bg-white dark:bg-stone-800 p-6 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 space-y-4 transition-colors w-full"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
@@ -210,7 +210,7 @@ export default function Contact() {
                     >
                       <textarea
                         placeholder="Your Message *"
-                        rows={5}
+                        rows={4}
                         value={formData.message}
                         onChange={(e) => handleChange('message', e.target.value)}
                         className={`${inputClass('message')} resize-none`}
@@ -219,9 +219,9 @@ export default function Contact() {
                     </motion.div>
                     <button
                       type="submit"
-                      className="flex items-center justify-center gap-2 w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3.5 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-amber-700/20"
+                      className="flex items-center justify-center gap-2 w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-amber-700/20 text-base"
                     >
-                      <Send className="w-4 h-4" /> Send Message
+                      <Send className="w-5 h-5" /> Send Message
                     </button>
                   </motion.form>
                 )}
