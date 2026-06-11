@@ -10,6 +10,25 @@
 
 ---
 
+## Screenshots
+
+### Home Page
+![Home Page](public/screenshots/home-page.png)
+
+### Book Catalog with Search & Filters
+![Book Catalog](public/screenshots/book-catalog.png)
+
+### Book Details Page
+![Book Details](public/screenshots/book-details.png)
+
+### Mobile Responsive View
+![Mobile View](public/screenshots/mobile-view.png)
+
+### Contact Form
+![Contact Form](public/screenshots/contact-form.png)
+
+---
+
 ## Features
 
 - **Browse Books:** Filter by category, language and search by title or author.
@@ -91,7 +110,13 @@ Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 ```
 Abebe-Bookstore/
 ├── public/
-│   └── images/                  # Static book cover images
+│   ├── images/                  # Static book cover images
+│   └── screenshots/             # App screenshots for README
+│       ├── home-page.png
+│       ├── book-catalog.png
+│       ├── book-details.png
+│       ├── mobile-view.png
+│       └── contact-form.png
 ├── src/
 │   ├── components/
 │   │   ├── Navigation.tsx       # Sticky top navbar with mobile menu
