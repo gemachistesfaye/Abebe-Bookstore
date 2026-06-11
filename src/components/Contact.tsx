@@ -41,43 +41,43 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 px-4 bg-white">
+    <section id="contact" className="py-16 px-4 bg-white dark:bg-stone-900 transition-colors">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
           Get In Touch
         </h2>
-        <p className="text-gray-600 mb-12 text-center">
+        <p className="text-gray-600 dark:text-stone-400 mb-12 text-center">
           Have questions? We'd love to hear from you
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
               Contact Information
             </h3>
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <Phone className="w-6 h-6 text-amber-600 mr-4 mt-1" />
+                <Phone className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
                 <div>
-                  <p className="font-semibold text-gray-900">Phone</p>
-                  <p className="text-gray-600">+251 97 660 1074</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">Phone</p>
+                  <p className="text-gray-600 dark:text-stone-400">+251 97 660 1074</p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <Mail className="w-6 h-6 text-amber-600 mr-4 mt-1" />
+                <Mail className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
                 <div>
-                  <p className="font-semibold text-gray-900">Email</p>
-                  <p className="text-gray-600">info@abebebookstore.com</p>
+                  <p className="font-semibold text-gray-900 dark:text-white">Email</p>
+                  <p className="text-gray-600 dark:text-stone-400">info@abebebookstore.com</p>
                 </div>
               </div>
 
               <div className="flex items-start">
-                <MapPin className="w-6 h-6 text-amber-600 mr-4 mt-1" />
+                <MapPin className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
                 <div>
-                  <p className="font-semibold text-gray-900">Location</p>
-                  <p className="text-gray-600">
+                  <p className="font-semibold text-gray-900 dark:text-white">Location</p>
+                  <p className="text-gray-600 dark:text-stone-400">
                     Near Harar Ras Hotel<br />
                     Harar, Ethiopia
                   </p>
@@ -102,7 +102,7 @@ export default function Contact() {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
                   Name
                 </label>
                 <input
@@ -111,13 +111,13 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
                   Email
                 </label>
                 <input
@@ -126,13 +126,13 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -141,19 +141,19 @@ export default function Contact() {
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
 
               {success && (
-                <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
+                <div className="p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg text-green-700 dark:text-green-400">
                   Thank you for your message! We'll get back to you soon.
                 </div>
               )}
 
               {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400">
                   {error}
                 </div>
               )}

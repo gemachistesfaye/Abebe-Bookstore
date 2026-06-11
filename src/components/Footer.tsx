@@ -53,7 +53,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 text-slate-200 py-8 px-6 border-t border-slate-800">
+    <footer className="bg-slate-900 dark:bg-stone-950 text-slate-200 py-8 px-6 border-t border-slate-800 dark:border-stone-800 transition-colors">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
@@ -130,7 +130,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="bg-slate-800/40 p-5 rounded-xl border border-slate-700/50 self-start">
+          <div className="bg-slate-800/40 dark:bg-stone-800/40 p-5 rounded-xl border border-slate-700/50 dark:border-stone-700/50 self-start transition-colors">
             <h3 className="text-white font-semibold mb-4 flex items-center gap-2 text-sm">
               <span className="w-6 h-px bg-amber-500"></span>
               Developer
@@ -185,7 +185,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-slate-800 pt-6">
+        <div className="border-t border-slate-800 dark:border-stone-800 pt-6">
           <p className="text-center text-slate-500 text-xs">
             &copy; {currentYear} Abebe Bookstore. Built in Ethiopia.
           </p>

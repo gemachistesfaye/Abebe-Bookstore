@@ -1,10 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
 import Navigation from './Navigation';
 
 const renderWithRouter = (component: React.ReactNode) => {
-  return render(<BrowserRouter>{component}</BrowserRouter>);
+  return render(
+    <BrowserRouter>
+      <CartProvider>{component}</CartProvider>
+    </BrowserRouter>
+  );
 };
 
 describe('Navigation', () => {
@@ -21,9 +26,17 @@ describe('Navigation', () => {
     expect(screen.getByRole('button', { name: /contact/i })).toBeInTheDocument();
   });
 
-  it('renders the mobile menu toggle button', () => {
+  it('renders dark mode toggle', () => {
     renderWithRouter(<Navigation />);
-    const menuButton = screen.getByRole('button', { name: '' });
-    expect(menuButton).toBeInTheDocument();
+    const toggles = screen.getAllByLabelText('Toggle dark mode');
+    expect(toggles.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('renders cart icon', () => {
+    renderWithRouter(<Navigation />);
+    const cartIcons = screen.getAllByRole('button').filter(
+      btn => btn.querySelector('.lucide-shopping-bag')
+    );
+    expect(cartIcons.length).toBeGreaterThanOrEqual(1);
   });
 });

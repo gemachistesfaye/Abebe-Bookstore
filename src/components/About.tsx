@@ -2,12 +2,12 @@ import { Heart, Award, Users } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-16 px-4 bg-amber-50">
+    <section id="about" className="py-16 px-4 bg-amber-50 dark:bg-stone-800 transition-colors">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 text-center">
           About Our Bookstore
         </h2>
-        <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-lg text-gray-700 dark:text-stone-300 text-center mb-12 max-w-3xl mx-auto">
           Serving our community with books, notebooks and learning materials since 2019
         </p>
 
@@ -18,10 +18,10 @@ export default function About() {
                 <Heart className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Community Focused
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-stone-400">
               We're dedicated to serving our local community with carefully selected books and materials
             </p>
           </div>
@@ -32,10 +32,10 @@ export default function About() {
                 <Award className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Quality Products
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-stone-400">
               Every item in our store is chosen for its quality and value to our customers
             </p>
           </div>
@@ -46,10 +46,10 @@ export default function About() {
                 <Users className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
               Expert Service
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-stone-400">
               Our knowledgeable staff is always ready to help you find exactly what you need
             </p>
           </div>

@@ -8,6 +8,7 @@
     "price": 550,
     "image": "/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "The definitive guide to the Ethiopian state, from the ancient Axumite Empire to the modern era."
   },
   {
@@ -19,6 +20,7 @@
     "price": 580,
     "image": "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "The essential textbook for understanding the formation of the modern nation and its political evolution (1855–1991)."
   },
   {
@@ -31,6 +33,7 @@
     "image": "/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
     "rating": 5,
     "isClassic": true,
+    "inStock": true,
     "description": "A world-renowned study on the Gadaa System, showcasing the brilliance of Oromo democratic institutions."
   },
   {
@@ -43,6 +46,7 @@
     "image": "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
     "rating": 5,
     "isClassic": true,
+    "inStock": true,
     "description": "The masterpiece of Amharic literature—an epic story of love, social class and the struggle against feudalism."
   },
   {
@@ -55,6 +59,7 @@
     "image": "/images/Godannisa_by_Kuusaa_Gadaa.jpeg",
     "rating": 5,
     "isClassic": true,
+    "inStock": true,
     "description": "The first published novel in Afaan Oromo. A historic milestone representing the soul and identity of the Oromo people."
   },
   {
@@ -66,6 +71,7 @@
     "price": 680,
     "image": "/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
     "rating": 4,
+    "inStock": true,
     "description": "A complex modernist novel that brilliantly captures the tension between tradition and the 1960s revolution."
   },
   {
@@ -77,6 +83,7 @@
     "price": 600,
     "image": "/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
     "rating": 5,
+    "inStock": true,
     "description": "A critical analysis of industrial policy and the roadmap for transforming Ethiopia into a manufacturing hub."
   },
   {
@@ -88,6 +95,7 @@
     "price": 420,
     "image": "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
     "rating": 4,
+    "inStock": true,
     "description": "Explores digital transformation, tech startups and the evolving business landscape in Addis Ababa."
   },
   {
@@ -99,6 +107,7 @@
     "price": 480,
     "image": "/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "Insights from a top economist on banking, development and Oromo economic participation."
   },
   {
@@ -110,6 +119,7 @@
     "price": 350,
     "image": "/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "A practical beginner-friendly guide to learning Amharic vocabulary, grammar and conversational skills."
   },
   {
@@ -121,6 +131,7 @@
     "price": 280,
     "image": "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "A comprehensive guide to mastering Afaan Oromo phrases, vocabulary and culture."
   },
   {
@@ -132,6 +143,7 @@
     "price": 250,
     "image": "/images/Amharic_My_First_Words_by_Melkam_Media.jpeg",
     "rating": 5,
+    "inStock": true,
     "description": "A fun and colorful picture book for beginners to start learning essential Amharic words."
   },
   {
@@ -143,6 +155,7 @@
     "price": 280,
     "image": "/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "An engaging Oromo folktale adaptation about a little girl's adventure with three lions — perfect for young readers learning language and culture."
   },
   {
@@ -154,6 +167,7 @@
     "price": 350,
     "image": "/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "A lively retelling of a beloved Ethiopian folk tale inspired by the classic runaway food story, filled with cultural charm and playful illustrations."
   },
   {
@@ -165,6 +179,7 @@
     "price": 300,
     "image": "/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
     "rating": 5,
+    "inStock": true,
     "description": "An Amharic collection of short folktales for children, including the story of the Sun and Wind and other traditional moral tales."
   },
   {
@@ -176,6 +191,7 @@
     "price": 600,
     "image": "/images/The_Flavors_of_Ethiopia.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "An award-winning cookbook and cultural guide celebrating the art of Gursha and traditional recipes."
   },
   {
@@ -187,6 +203,7 @@
     "price": 420,
     "image": "/images/አማርኛ_የቡና_ታሪክ_እና_ባህላዊ_ሥነ_ሥርዓት_መፅሃፍ_ካቫር.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "A detailed guide in Amharic exploring the rich history and cultural rituals of Ethiopian coffee traditions and ceremonies."
   },
   {
@@ -198,6 +215,417 @@
     "price": 550,
     "image": "/images/Oromia_An_Introduction.jpg",
     "rating": 5,
+    "inStock": true,
     "description": "A foundational look at Oromo social values, Siinqee and the core philosophies of Gadaa culture."
+  },
+  {
+    "id": 19,
+    "title": "The Conquest of Abyssinia",
+    "author": "Yilma Defare",
+    "category": "History",
+    "language": "English",
+    "price": 490,
+    "image": "/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A scholarly account of the Scramble for Africa and Ethiopia's remarkable resistance to colonialism."
+  },
+  {
+    "id": 20,
+    "title": "Ethiopian Civilization",
+    "author": "Tekle Tsadik Mekuria",
+    "category": "History",
+    "language": "English",
+    "price": 520,
+    "image": "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Traces the roots of Ethiopian civilization from pre-Aksumite times through the medieval period."
+  },
+  {
+    "id": 21,
+    "title": "Ye Abyssinia Tarik",
+    "author": "Gebre Hiwot Berhane",
+    "category": "History",
+    "language": "Amharic",
+    "price": 380,
+    "image": "/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
+    "rating": 4,
+    "inStock": false,
+    "description": "An Amharic account of Ethiopian history covering the imperial era and the struggle for modernization."
+  },
+  {
+    "id": 22,
+    "title": "Seba Wede Tarik",
+    "author": "Haddis Alemayehu",
+    "category": "Literature",
+    "language": "Amharic",
+    "price": 580,
+    "image": "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
+    "rating": 5,
+    "isClassic": true,
+    "inStock": true,
+    "description": "A powerful novel exploring the revolutionary period in Ethiopia through the eyes of ordinary people."
+  },
+  {
+    "id": 23,
+    "title": "Liqe Mewoded",
+    "author": "Baalu Girma",
+    "category": "Literature",
+    "language": "Amharic",
+    "price": 650,
+    "image": "/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
+    "rating": 5,
+    "isClassic": true,
+    "inStock": true,
+    "description": "A gripping novel about the political upheavals and personal betrayals of 1970s Ethiopia."
+  },
+  {
+    "id": 24,
+    "title": "Oromay",
+    "author": "Baalu Girma",
+    "category": "Literature",
+    "language": "Amharic",
+    "price": 700,
+    "image": "/images/Godannisa_by_Kuusaa_Gadaa.jpeg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A landmark Amharic novel that chronicles the transformation of Ethiopian society in the late 20th century."
+  },
+  {
+    "id": 25,
+    "title": "Yegollo Chora",
+    "author": "Berhane Mariam Sahle",
+    "category": "Literature",
+    "language": "Amharic",
+    "price": 450,
+    "image": "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A compelling story of love and loss set against the backdrop of rural Ethiopian life."
+  },
+  {
+    "id": 26,
+    "title": "Weaving the Future",
+    "author": "Desta Gebrehiwot",
+    "category": "Business",
+    "language": "English",
+    "price": 390,
+    "image": "/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Explores Ethiopia's emerging textile industry and its potential for economic transformation."
+  },
+  {
+    "id": 27,
+    "title": "Coffee and Capitalism",
+    "author": "Alemayehu Geda",
+    "category": "Business",
+    "language": "English",
+    "price": 460,
+    "image": "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Analyzes the Ethiopian coffee trade and its role in the country's economic development."
+  },
+  {
+    "id": 28,
+    "title": "Building Addis",
+    "author": "Yonas Alemayehu",
+    "category": "Business",
+    "language": "English",
+    "price": 510,
+    "image": "/images/My_Life_My_Vision_by_Bulcha_Demeksa.jpg",
+    "rating": 4,
+    "inStock": false,
+    "description": "A comprehensive look at urban development and infrastructure projects transforming Addis Ababa."
+  },
+  {
+    "id": 29,
+    "title": "Ethiopian Business Review",
+    "author": "Fetlework Eshetu",
+    "category": "Business",
+    "language": "English",
+    "price": 440,
+    "image": "/images/Made_in_Ethiopia_by_Arkebe_Oqubay.jpeg",
+    "rating": 3,
+    "inStock": true,
+    "description": "A collection of essays on the challenges and opportunities facing Ethiopian entrepreneurs."
+  },
+  {
+    "id": 30,
+    "title": "Speak Afaan Oromo Today",
+    "author": "Jawar Mohammed",
+    "category": "Language",
+    "language": "Afaan Oromo",
+    "price": 320,
+    "image": "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A modern conversational guide to Afaan Oromo with practical dialogue examples."
+  },
+  {
+    "id": 31,
+    "title": "Amharic Grammar Complete",
+    "author": "Girma Desta",
+    "category": "Language",
+    "language": "Amharic",
+    "price": 380,
+    "image": "/images/Selam!_Learn_Amharic_by_Dawit_Lambebo_Gulta.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A thorough reference for Amharic grammar rules, verb conjugations and sentence structure."
+  },
+  {
+    "id": 32,
+    "title": "English-Amharic Dictionary",
+    "author": "Sergew Hable-Selassie",
+    "category": "Language",
+    "language": "Bilingual",
+    "price": 450,
+    "image": "/images/Amharic_My_First_Words_by_Melkam_Media.jpeg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A comprehensive bilingual dictionary with over 15,000 entries for everyday and academic use."
+  },
+  {
+    "id": 33,
+    "title": "Yene Afaan Oromoo",
+    "author": "Abiy Kecha",
+    "category": "Language",
+    "language": "Afaan Oromo",
+    "price": 290,
+    "image": "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A self-study course for learning Afaan Oromo with audio companion and exercises."
+  },
+  {
+    "id": 34,
+    "title": "Abeba's First Alphabet",
+    "author": "Melkam Media",
+    "category": "Children",
+    "language": "Amharic",
+    "price": 200,
+    "image": "/images/ፀሃይ_እና_ንፋስ_እንዲሁም_ሌሎ_ተረቶች.webp",
+    "rating": 5,
+    "inStock": true,
+    "description": "A colorful alphabet book introducing young children to the Amharic Fidel with playful illustrations."
+  },
+  {
+    "id": 35,
+    "title": "The Wise Hyena",
+    "author": "Kiazpora",
+    "category": "Children",
+    "language": "English",
+    "price": 260,
+    "image": "/images/The_Little_Girl_and_The_Three_Lions_by_Kiazpora.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "An illustrated collection of Ethiopian folktales featuring the clever hyena character beloved by children."
+  },
+  {
+    "id": 36,
+    "title": "Meskel Celebration",
+    "author": "Kidist Selassie",
+    "category": "Children",
+    "language": "Bilingual",
+    "price": 320,
+    "image": "/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A bilingual storybook about the Meskel festival, teaching children about Ethiopian Orthodox traditions."
+  },
+  {
+    "id": 37,
+    "title": "Tizita: Songs of Nostalgia",
+    "author": "Mekdes Kassa",
+    "category": "Culture",
+    "language": "English",
+    "price": 480,
+    "image": "/images/The_Flavors_of_Ethiopia.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Explores the Tizita musical tradition and its deep roots in Ethiopian memory and longing."
+  },
+  {
+    "id": 38,
+    "title": "Ethiopian Textiles",
+    "author": "Ruth Iyob",
+    "category": "Culture",
+    "language": "English",
+    "price": 650,
+    "image": "/images/Oromia_An_Introduction.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A visual journey through Ethiopia's rich textile heritage from Habesha kemis to modern fashion."
+  },
+  {
+    "id": 39,
+    "title": "Ye Gondar Zema",
+    "author": "Yohannes Tadesse",
+    "category": "Culture",
+    "language": "Amharic",
+    "price": 380,
+    "image": "/images/አማርኛ_የቡና_ታሪክ_እና_ባህላዊ_ሥነ_ሥርዓት_መፅሃፍ_ካቫር.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A study of the musical traditions of Gondar and their influence on Ethiopian liturgical music."
+  },
+  {
+    "id": 40,
+    "title": "Sidama Heritage",
+    "author": "Abebe Chenco",
+    "category": "Culture",
+    "language": "English",
+    "price": 420,
+    "image": "/images/Oromia_An_Introduction.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Documents the cultural practices, ceremonies and oral traditions of the Sidama people."
+  },
+  {
+    "id": 41,
+    "title": "The Battle of Adwa",
+    "author": "Raymond Kibler",
+    "category": "History",
+    "language": "English",
+    "price": 560,
+    "image": "/images/Ethiopia_A_History_by_Harold_G.Marcus.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A vivid account of the 1896 Battle of Adwa where Ethiopia defeated Italian colonial forces."
+  },
+  {
+    "id": 42,
+    "title": "Menelik and the Founding of Modern Ethiopia",
+    "author": "Andargachew Assefa",
+    "category": "History",
+    "language": "English",
+    "price": 530,
+    "image": "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Examines Emperor Menelik II's role in shaping the modern Ethiopian state and resisting colonization."
+  },
+  {
+    "id": 43,
+    "title": "Ye Ityop'ya Hizb Tewawui",
+    "author": "Mesfin Wolde-Mariam",
+    "category": "History",
+    "language": "Amharic",
+    "price": 420,
+    "image": "/images/Oromo_Democracy_by_Asmarom_Legesse.jpeg",
+    "rating": 4,
+    "inStock": true,
+    "description": "An Amharic analysis of Ethiopian nationalism and its evolution through the 20th century."
+  },
+  {
+    "id": 44,
+    "title": "Addis Ababa: City of Dreams",
+    "author": "Paulos Milkias",
+    "category": "History",
+    "language": "English",
+    "price": 490,
+    "image": "/images/A_History_of_Modern_Ethiopia_by_Bahru_Zewde.jpg",
+    "rating": 4,
+    "inStock": false,
+    "description": "Chronicles the founding and growth of Ethiopia's capital from a small settlement to a modern metropolis."
+  },
+  {
+    "id": 45,
+    "title": "Birhanemeskel: A Light of Change",
+    "author": "Aster Kebede",
+    "category": "Literature",
+    "language": "Amharic",
+    "price": 520,
+    "image": "/images/Adefris_(አዴፍርስ)_by_Dagnachew_Worku.jpeg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A contemporary novel about a young woman navigating tradition and modernity in urban Ethiopia."
+  },
+  {
+    "id": 46,
+    "title": "Echoes of the Rift",
+    "author": "Meron Getachew",
+    "category": "Literature",
+    "language": "English",
+    "price": 470,
+    "image": "/images/Fikir_Eske_Mekabir_by_Haddis_Alemayehu.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Short stories exploring identity and belonging in the Ethiopian diaspora."
+  },
+  {
+    "id": 47,
+    "title": "The Coffee Ceremony",
+    "author": "Tigist Lemma",
+    "category": "Culture",
+    "language": "English",
+    "price": 390,
+    "image": "/images/The_Flavors_of_Ethiopia.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "A cultural guide to the Ethiopian coffee ceremony, its rituals and social significance."
+  },
+  {
+    "id": 48,
+    "title": "Startup Ethiopia",
+    "author": "Eyerusalem Jiga",
+    "category": "Business",
+    "language": "English",
+    "price": 430,
+    "image": "/images/Entrepreneurial_Ecosystem_by_Mulu_Gebreeyesus.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Profiles of Ethiopian startups disrupting agriculture, fintech and logistics sectors."
+  },
+  {
+    "id": 49,
+    "title": "Afaan Oromo Proverbs",
+    "author": "Gadaa Research Center",
+    "category": "Language",
+    "language": "Afaan Oromo",
+    "price": 340,
+    "image": "/images/Afan-Oromo_A_Guide_to_Speaking_the_Language_of_Oromo_People.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A collection of 500 Afaan Oromo proverbs with English translations and cultural explanations."
+  },
+  {
+    "id": 50,
+    "title": "Ethiopian Children's Songbook",
+    "author": "Melkam Media",
+    "category": "Children",
+    "language": "Bilingual",
+    "price": 280,
+    "image": "/images/The_Runaway_Injera_An_Ethiopian_Fairy_Tale.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "A bilingual collection of beloved Ethiopian children's songs with musical notation and illustrations."
+  },
+  {
+    "id": 51,
+    "title": "Harar: City of Peace",
+    "author": "Maimire Mennasemay",
+    "category": "Culture",
+    "language": "English",
+    "price": 500,
+    "image": "/images/Oromia_An_Introduction.jpg",
+    "rating": 4,
+    "inStock": true,
+    "description": "Explores the history, culture and UNESCO heritage status of Ethiopia's holy city Harar."
+  },
+  {
+    "id": 52,
+    "title": "The Art of Weaving",
+    "author": "Tsehay Demissie",
+    "category": "Culture",
+    "language": "English",
+    "price": 580,
+    "image": "/images/The_Flavors_of_Ethiopia.jpg",
+    "rating": 5,
+    "inStock": true,
+    "description": "Documents traditional Ethiopian weaving techniques and their cultural significance across regions."
   }
 ]

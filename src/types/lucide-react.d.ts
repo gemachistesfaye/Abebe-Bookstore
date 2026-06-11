@@ -32,4 +32,15 @@ declare module 'lucide-react' {
   export const Coffee: Icon;
   export const Scroll: Icon;
   export const Map: Icon;
+  export const Plus: Icon;
+  export const Minus: Icon;
+  export const Trash2: Icon;
+  export const ShoppingBag: Icon;
+  export const ShoppingCart: Icon;
+  export const Moon: Icon;
+  export const Sun: Icon;
+  export const Check: Icon;
+  export const ArrowUpDown: Icon;
+  export const ToggleLeft: Icon;
+  export const ToggleRight: Icon;
 }

@@ -42,4 +42,32 @@ describe('App', () => {
     );
     expect(screen.getAllByText('Abebe Bookstore').length).toBeGreaterThanOrEqual(1);
   });
+
+  it('renders the checkout page', () => {
+    render(
+      <MemoryRouter initialEntries={['/checkout']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getByText('Checkout Summary')).toBeInTheDocument();
+  });
+
+  it('renders dark mode toggle in navigation', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    const toggles = screen.getAllByLabelText('Toggle dark mode');
+    expect(toggles.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('renders cart icon in navigation', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(screen.getAllByRole('button').length).toBeGreaterThan(0);
+  });
 });

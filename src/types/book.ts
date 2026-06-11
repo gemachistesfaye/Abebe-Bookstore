@@ -9,4 +9,10 @@ export interface Book {
   rating: number;
   description: string;
   isClassic?: boolean;
+  inStock?: boolean;
+}
+
+export interface CartItem {
+  book: Book;
+  quantity: number;
 }

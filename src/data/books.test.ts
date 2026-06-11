@@ -3,8 +3,8 @@ import { books } from '../data/books';
 import type { Book } from '../types/book';
 
 describe('Books Data', () => {
-  it('should have 18 books', () => {
-    expect(books).toHaveLength(18);
+  it('should have 52 books', () => {
+    expect(books).toHaveLength(52);
   });
 
   it('should have all required fields on every book', () => {
@@ -57,5 +57,26 @@ describe('Books Data', () => {
   it('should have at least one classic book', () => {
     const classics = books.filter((b: Book) => b.isClassic);
     expect(classics.length).toBeGreaterThan(0);
+  });
+
+  it('should have inStock field on all books', () => {
+    books.forEach((book: Book) => {
+      expect(book.inStock).toBeDefined();
+      expect(typeof book.inStock).toBe('boolean');
+    });
+  });
+
+  it('should have some books in stock and some out of stock', () => {
+    const inStock = books.filter((b: Book) => b.inStock === true);
+    const outOfStock = books.filter((b: Book) => b.inStock === false);
+    expect(inStock.length).toBeGreaterThan(0);
+    expect(outOfStock.length).toBeGreaterThan(0);
+  });
+
+  it('should have price range between 200 and 1000', () => {
+    books.forEach((book: Book) => {
+      expect(book.price).toBeGreaterThanOrEqual(200);
+      expect(book.price).toBeLessThanOrEqual(1000);
+    });
   });
 });

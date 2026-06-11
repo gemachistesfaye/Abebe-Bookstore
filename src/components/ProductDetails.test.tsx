@@ -2,15 +2,18 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { CartProvider } from '../context/CartContext';
 import ProductDetails from './ProductDetails';
 
 const renderWithRouter = (initialEntries: string[]) => {
   return render(
     <MemoryRouter initialEntries={initialEntries}>
-      <Routes>
-        <Route path="/book/:id" element={<ProductDetails />} />
-        <Route path="/" element={<div>Home Page</div>} />
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/book/:id" element={<ProductDetails />} />
+          <Route path="/" element={<div>Home Page</div>} />
+        </Routes>
+      </CartProvider>
     </MemoryRouter>
   );
 };
@@ -41,6 +44,18 @@ describe('ProductDetails', () => {
   it('renders call to action button', () => {
     renderWithRouter(['/book/1']);
     expect(screen.getByText('Call us for Order')).toBeInTheDocument();
+  });
+
+  it('renders add to cart button for in-stock books', () => {
+    renderWithRouter(['/book/1']);
+    expect(screen.getByText('Add to Cart')).toBeInTheDocument();
+  });
+
+  it('adds item to cart when clicking add to cart', async () => {
+    const user = userEvent.setup();
+    renderWithRouter(['/book/1']);
+    await user.click(screen.getByText('Add to Cart'));
+    expect(screen.getByText('Added to Cart')).toBeInTheDocument();
   });
 
   it('renders not found message for invalid book ID', () => {
