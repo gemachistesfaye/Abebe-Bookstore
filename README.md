@@ -1,4 +1,4 @@
-# Abebe Bookstore
+# 📚 Abebe Bookstore
 
 **Abebe Bookstore** is a modern, responsive web application for showcasing Ethiopian books, learning materials and cultural literature. The website allows users to browse categories, view book details and contact the store directly. It's built with **React**, **TypeScript** and **Tailwind CSS** for a fast and interactive experience.
 
@@ -12,23 +12,37 @@
 
 ## Screenshots
 
+### Desktop
+
 | | | |
 |:---:|:---:|:---:|
-| 🏠 **Home Page** | 📚 **Book Catalog** | 📖 **Book Details** |
-| ![Home](public/screenshots/home-page.png) | ![Catalog](public/screenshots/book-catalog.png) | ![Details](public/screenshots/book-details.png) |
-| 📱 **Mobile View** | 📝 **Contact Form** | ℹ️ **About Section** |
-| ![Mobile](public/screenshots/mobile-view.png) | ![Contact](public/screenshots/contact-form.png) | ![About](public/screenshots/about-section.png) |
+| 🏠 **Home** | ℹ️ **About** | 📚 **Book Catalog** |
+| ![Home](public/screenshots/home.png) | ![About](public/screenshots/about.png) | ![Catalog](public/screenshots/book-catalogue.png) |
+| 📖 **Book Details** | 📝 **Contact** | 🛒 **Checkout** |
+| ![Details](public/screenshots/book-details.png) | ![Contact](public/screenshots/contact.png) | ![Checkout](public/screenshots/checkout.png) |
+
+### Mobile
+
+| | | |
+|:---:|:---:|:---:|
+| 📱 **Mobile 1** | 📱 **Mobile 2** | 📱 **Mobile 3** |
+| ![Mobile 1](public/screenshots/mobile1.png) | ![Mobile 2](public/screenshots/mobile2.png) | ![Mobile 3](public/screenshots/mobile3.png) |
 
 ---
 
-## Features
+## ✨ Features
 
 - **Browse Books:** Filter by category, language and search by title or author.
 - **Featured Products:** Highlighted classics and popular books.
 - **Book Details:** Detailed view with description, rating, price and in-library status.
 - **Wishlist:** Mark favorite books.
+- **Shopping Cart:** Add items, adjust quantities, proceed to checkout with call-to-order.
 - **Contact Section:** Users can send messages via a contact form, call, or reach via Telegram.
+- **Dark Mode:** Full dark mode support across all pages.
+- **Floating Social Media:** Facebook, Telegram, TikTok and Instagram links with animated expand (horizontal on desktop, vertical on mobile).
+- **Mobile Menu:** Slide-out hamburger menu with close button, dark mode toggle and call-to-order.
 - **Responsive Design:** Works across mobile, tablet and desktop.
+- **Scroll to Top:** Back-to-top button on mobile (left side).
 - **Developer Info:** Contact the developer via email, phone, Telegram or GitHub.
 
 ---
@@ -46,12 +60,13 @@ Languages available include **Amharic**, **Afaan Oromo**, **English** and **Bili
 
 ---
 
-## Tech Stack
+## 🛠 Tech Stack
 
 - **Frontend:** React, TypeScript
 - **Routing:** React Router
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
+- **Animations:** Framer Motion
 - **Testing:** Vitest, React Testing Library
 - **Build Tool:** Vite
 - **Deployment:** Vercel
@@ -108,7 +123,10 @@ Abebe-Bookstore/
 │       ├── book-catalog.png
 │       ├── book-details.png
 │       ├── mobile-view.png
+│       ├── mobile-menu.png
 │       ├── contact-form.png
+│       ├── cart-drawer.png
+│       ├── dark-mode.png
 │       └── about-section.png
 ├── src/
 │   ├── components/
@@ -119,8 +137,15 @@ Abebe-Bookstore/
 │   │   ├── About.tsx            # About section
 │   │   ├── Contact.tsx          # Contact form + info
 │   │   ├── Footer.tsx           # Footer with links
+│   │   ├── CartDrawer.tsx       # Slide-out cart sidebar
+│   │   ├── CheckoutPage.tsx     # Checkout summary page
 │   │   ├── FloatingContactButtons.tsx # Social media buttons
+│   │   ├── DarkModeToggle.tsx   # Dark/light mode toggle
+│   │   ├── ScrollReveal.tsx     # Scroll animation wrapper
+│   │   ├── FAQ.tsx              # FAQ accordion section
 │   │   └── ErrorBoundary.tsx    # Error boundary component
+│   ├── context/
+│   │   └── CartContext.tsx       # Cart & wishlist state (localStorage)
 │   ├── data/
 │   │   ├── books.json           # Book data (18 books)
 │   │   └── books.ts             # Typed wrapper for book data
@@ -141,21 +166,17 @@ Abebe-Bookstore/
 
 ---
 
-## Environment Variables
+## 💳 Payment
 
-Create a `.env` file based on `.env.example`:
-
-```
-VITE_FORMSPREE_ID=your_formspree_id_here
-```
+This is a **frontend-only** application. There is no backend or payment processing. Users can browse books and add them to cart, then call **[+251 97 660 1074](tel:+251976601074)** to place an order.
 
 ---
 
-## Contact & Developer Info
+## 📞 Contact & Developer Info
 
 - **Phone:** [+251 97 660 1074](tel:+251976601074)
 - **Email:** [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com)
-- **Telegram Channel:** [GemachisTesfaye](https://t.me/GemachisTesfaye)
+- **Telegram Channel:** [GemachisTesfaye](https://t.me/GemachisTech)
 - **GitHub Profile:** [gemachistesfaye](https://github.com/gemachistesfaye)
 
 ---
