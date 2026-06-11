@@ -176,8 +176,32 @@ This is a **frontend-only** application. There is no backend or payment processi
 
 - **Phone:** [+251 97 660 1074](tel:+251976601074)
 - **Email:** [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com)
-- **Telegram Channel:** [GemachisTesfaye](https://t.me/GemachisTech)
+- **Telegram Channel:** [GemachisTesfaye](https://t.me/GemachisTesfaye)
 - **GitHub Profile:** [gemachistesfaye](https://github.com/gemachistesfaye)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📋 Code of Conduct
+
+Please read our [Code of Conduct](.github/CODE_OF_CONDUCT.md) before contributing.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](.github/CONTRIBUTING.md) for details.
+
+---
+
+## 🔒 Security
+
+For security vulnerabilities, please see our [Security Policy](.github/SECURITY.md).
 
 ---
 

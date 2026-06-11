@@ -1,17 +1,17 @@
-# 🤝 Contributing to Abebe Bookstore
+# Contributing to Abebe Bookstore
 
-Thanks for your interest in contributing! 🎉
+Thanks for your interest in contributing!
 
-## 🚀 Quick Start
+## Quick Start
 
-1. 🔀 Fork & clone the repo
-2. 📦 Install dependencies: `npm install`
-3. 🛠️ Start dev server: `npm run dev`
-4. 🌿 Create a branch: `git checkout -b feature/your-feature`
-5. ✅ Test your changes: `npm run test && npm run lint`
-6. 📤 Submit a Pull Request
+1. Fork and clone the repo
+2. Install dependencies: `npm install`
+3. Start dev server: `npm run dev`
+4. Create a branch: `git checkout -b feature/your-feature`
+5. Test your changes: `npm run test && npm run lint`
+6. Submit a Pull Request
 
-## 📝 Commit Convention
+## Commit Convention
 
 Use [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -22,39 +22,39 @@ docs(readme): update instructions
 style(footer): improve responsive
 ```
 
-| Type | Emoji | Description |
-|------|-------|-------------|
-| feat | 🚀 | New feature |
-| fix | 🐛 | Bug fix |
-| docs | 📝 | Documentation |
-| style | 💄 | Code style |
-| refactor | ♻️ | Code refactor |
-| test | ✅ | Add tests |
-| chore | 🔧 | Build/tools |
+| Type | Description |
+|------|-------------|
+| feat | New feature |
+| fix | Bug fix |
+| docs | Documentation |
+| style | Code style |
+| refactor | Code refactor |
+| test | Add tests |
+| chore | Build/tools |
 
-## 📐 Style Guide
+## Style Guide
 
-- ✅ Use **TypeScript** for all components
-- ✅ Use **Tailwind CSS** for styling
-- ✅ Keep components **small** and **focused**
-- ✅ Write **meaningful** variable names
+- Use **TypeScript** for all components
+- Use **Tailwind CSS** for styling
+- Keep components **small** and **focused**
+- Write **meaningful** variable names
 
-## 🐞 Found a Bug?
+## Found a Bug?
 
 Create an issue with:
-- 📝 Clear description
-- 🔄 Steps to reproduce
-- 📸 Screenshots if applicable
+- Clear description
+- Steps to reproduce
+- Screenshots if applicable
 
-## 💡 Have an Idea?
+## Have an Idea?
 
 Create an issue with `enhancement` label describing your feature idea.
 
-## ❓ Questions?
+## Questions?
 
-- 📧 Email: gemachistesfaye36@gmail.com
-- 💬 Telegram: [GemachisTesfaye](https://t.me/GemachisTesfaye)
+- Email: gemachistesfaye36@gmail.com
+- Telegram: [GemachisTesfaye](https://t.me/GemachisTesfaye)
 
-## 🙏 Thanks!
+## Thanks!
 
-Every contribution helps make this project better for the Ethiopian book community! 🇪🇹📚
+Every contribution helps make this project better for the Ethiopian book community.
