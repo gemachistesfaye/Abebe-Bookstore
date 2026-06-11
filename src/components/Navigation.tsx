@@ -115,11 +115,17 @@ export default function Navigation() {
               </AnimatePresence>
             </button>
             <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? (
-                <X className="w-6 h-6 text-gray-700 dark:text-stone-300" />
-              ) : (
-                <Menu className="w-6 h-6 text-gray-700 dark:text-stone-300" />
-              )}
+              <AnimatePresence mode="wait">
+                {isOpen ? (
+                  <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <X className="w-6 h-6 text-gray-700 dark:text-stone-300" />
+                  </motion.div>
+                ) : (
+                  <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                    <Menu className="w-6 h-6 text-gray-700 dark:text-stone-300" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </button>
           </div>
         </div>

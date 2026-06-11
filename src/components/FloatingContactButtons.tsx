@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, X } from 'lucide-react';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -110,9 +110,19 @@ export default function FloatingContactButtons() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-amber-600 hover:bg-amber-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-110"
-        title="Contact Us"
+        title={isOpen ? 'Close' : 'Contact Us'}
       >
-        <MessageCircle className="w-6 h-6" />
+        <AnimatePresence mode="wait">
+          {isOpen ? (
+            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+              <X className="w-6 h-6" />
+            </motion.div>
+          ) : (
+            <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+              <MessageCircle className="w-6 h-6" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </button>
     </div>
   );
