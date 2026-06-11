@@ -12,20 +12,12 @@
 
 ## Screenshots
 
-### Home Page
-![Home Page](public/screenshots/home-page.png)
-
-### Book Catalog with Search & Filters
-![Book Catalog](public/screenshots/book-catalog.png)
-
-### Book Details Page
-![Book Details](public/screenshots/book-details.png)
-
-### Mobile Responsive View
-![Mobile View](public/screenshots/mobile-view.png)
-
-### Contact Form
-![Contact Form](public/screenshots/contact-form.png)
+| | | |
+|:---:|:---:|:---:|
+| 🏠 **Home Page** | 📚 **Book Catalog** | 📖 **Book Details** |
+| ![Home](public/screenshots/home-page.png) | ![Catalog](public/screenshots/book-catalog.png) | ![Details](public/screenshots/book-details.png) |
+| 📱 **Mobile View** | 📝 **Contact Form** | ℹ️ **About Section** |
+| ![Mobile](public/screenshots/mobile-view.png) | ![Contact](public/screenshots/contact-form.png) | ![About](public/screenshots/about-section.png) |
 
 ---
 
@@ -116,7 +108,8 @@ Abebe-Bookstore/
 │       ├── book-catalog.png
 │       ├── book-details.png
 │       ├── mobile-view.png
-│       └── contact-form.png
+│       ├── contact-form.png
+│       └── about-section.png
 ├── src/
 │   ├── components/
 │   │   ├── Navigation.tsx       # Sticky top navbar with mobile menu
