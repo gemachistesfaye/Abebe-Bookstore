@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface ContactButton {
   id: string;
@@ -77,23 +78,34 @@ export default function FloatingContactButtons() {
 
   return (
     <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-40">
-      {isOpen && (
-        <div className="flex flex-col sm:flex-row gap-2 animate-in fade-in duration-200">
-          {contactButtons.map((button) => (
-            <a
-              key={button.id}
-              href={button.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-3 px-4 py-3 rounded-full text-white shadow-lg ${button.color} transition-all duration-300 hover:shadow-xl`}
-              title={button.name}
-            >
-              {button.icon}
-              <span className="hidden sm:inline font-medium text-sm">{button.name}</span>
-            </a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col-reverse sm:flex-row-reverse sm:items-center gap-2"
+          >
+            {contactButtons.map((button, i) => (
+              <motion.a
+                key={button.id}
+                href={button.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.05, duration: 0.2 }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-full text-white shadow-lg ${button.color} transition-all duration-300 hover:shadow-xl`}
+                title={button.name}
+              >
+                {button.icon}
+                <span className="hidden sm:inline font-medium text-sm">{button.name}</span>
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
