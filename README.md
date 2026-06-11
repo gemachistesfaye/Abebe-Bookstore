@@ -119,15 +119,14 @@ Abebe-Bookstore/
 ├── public/
 │   ├── images/                  # Static book cover images
 │   └── screenshots/             # App screenshots for README
-│       ├── home-page.png
-│       ├── book-catalog.png
+│       ├── home.png
+│       ├── about.png
+│       ├── book-catalogue.png
 │       ├── book-details.png
-│       ├── mobile-view.png
-│       ├── mobile-menu.png
-│       ├── contact-form.png
-│       ├── cart-drawer.png
-│       ├── dark-mode.png
-│       └── about-section.png
+│       ├── contact.png
+│       ├── mobile1.png
+│       ├── mobile2.png
+│       └── mobile3.png
 ├── src/
 │   ├── components/
 │   │   ├── Navigation.tsx       # Sticky top navbar with mobile menu
@@ -156,8 +155,14 @@ Abebe-Bookstore/
 │   ├── App.tsx                  # Root component with routing
 │   ├── main.tsx                 # Application entry point
 │   └── index.css                # Global styles (Tailwind)
+├── .github/
+│   ├── CODE_OF_CONDUCT.md       # Community guidelines
+│   ├── CONTRIBUTING.md           # Contribution guide
+│   ├── SECURITY.md              # Security policy
+│   └── LICENSE                  # MIT License (copy)
 ├── .env.example                 # Environment variable template
 ├── index.html                   # Vite HTML entry point
+├── LICENSE                      # MIT License
 ├── package.json                 # Dependencies & scripts
 ├── tsconfig.json                # TypeScript configuration
 ├── vite.config.ts               # Vite configuration
