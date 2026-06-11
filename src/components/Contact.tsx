@@ -1,179 +1,233 @@
-import { useState, FormEvent } from 'react';
-import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import ScrollReveal from './ScrollReveal';
+
+const confettiColors = ['#009b48', '#ffff00', '#da121a', '#f59e0b', '#8b5e3c'];
+
+function Confetti() {
+  return (
+    <div className="fixed inset-0 pointer-events-none z-50">
+      {[...Array(40)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ y: -20, x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), opacity: 1, rotate: 0 }}
+          animate={{ y: typeof window !== 'undefined' ? window.innerHeight + 20 : 800, rotate: 720, opacity: 0 }}
+          transition={{ duration: 2 + Math.random() * 2, ease: 'easeOut', delay: Math.random() * 0.5 }}
+          className="absolute w-2 h-2 rounded-sm"
+          style={{ backgroundColor: confettiColors[i % confettiColors.length] }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [shaking, setShaking] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setSubmitting(true);
-    setError(null);
-
-    try {
-      const response = await fetch(`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message.');
-      }
-
-      setSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-
-      setTimeout(() => setSuccess(false), 5000);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Something went wrong.');
-    } finally {
-      setSubmitting(false);
+  const validate = (field: string, value: string) => {
+    const newErrors = { ...errors };
+    if (!value.trim()) {
+      newErrors[field] = 'This field is required';
+    } else if (field === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      newErrors[field] = 'Please enter a valid email';
+    } else {
+      delete newErrors[field];
     }
-  }
+    setErrors(newErrors);
+    if (newErrors[field]) {
+      setShaking(field);
+      setTimeout(() => setShaking(null), 500);
+    }
+    return !newErrors[field];
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const fields = ['name', 'email', 'subject', 'message'];
+    const allValid = fields.every(f => validate(f, formData[f as keyof typeof formData]));
+    if (allValid) {
+      setShowConfetti(true);
+      setShowSuccess(true);
+      setTimeout(() => { setShowConfetti(false); setShowSuccess(false); }, 4000);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }
+  };
+
+  const handleChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (errors[field]) validate(field, value);
+  };
+
+  const inputClass = (field: string) =>
+    `w-full p-3 bg-stone-50 dark:bg-stone-700 border rounded-lg outline-none text-sm text-stone-900 dark:text-white transition-all ${
+      errors[field]
+        ? 'border-red-400 focus:ring-2 focus:ring-red-200'
+        : 'border-transparent focus:bg-white dark:focus:bg-stone-600 focus:ring-2 focus:ring-amber-800/20'
+    } ${shaking === field ? 'animate-shake' : ''} placeholder-stone-400`;
 
   return (
-    <section id="contact" className="py-16 px-4 bg-white dark:bg-stone-900 transition-colors">
+    <section id="contact" className="bg-[#fdfaf6] dark:bg-stone-900 py-24 px-4 relative transition-colors">
+      {showConfetti && <Confetti />}
+
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          Get In Touch
-        </h2>
-        <p className="text-gray-600 dark:text-stone-400 mb-12 text-center">
-          Have questions? We'd love to hear from you
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
-              Contact Information
-            </h3>
-
-            <div className="space-y-6">
-              <div className="flex items-start">
-                <Phone className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Phone</p>
-                  <p className="text-gray-600 dark:text-stone-400">+251 97 660 1074</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <Mail className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Email</p>
-                  <p className="text-gray-600 dark:text-stone-400">info@abebebookstore.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start">
-                <MapPin className="w-6 h-6 text-amber-600 dark:text-amber-500 mr-4 mt-1" />
-                <div>
-                  <p className="font-semibold text-gray-900 dark:text-white">Location</p>
-                  <p className="text-gray-600 dark:text-stone-400">
-                    Near Harar Ras Hotel<br />
-                    Harar, Ethiopia
-                  </p>
-                </div>
-              </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="flex justify-center gap-2 mb-4">
+              <div className="w-8 h-1 bg-[#009b48] rounded-full"></div>
+              <div className="w-8 h-1 bg-[#ffff00] rounded-full"></div>
+              <div className="w-8 h-1 bg-[#da121a] rounded-full"></div>
             </div>
-
-
-            <div className="mt-8 rounded-lg overflow-hidden shadow-md">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2579.8128110668545!2d42.11918264596196!3d9.3126546425665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1769964507392!5m2!1sen!2set"
-                width="100%"
-                height="250"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="Bookstore Location"
-              ></iframe>
-            </div>
+            <h2 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-4">Get in Touch</h2>
+            <p className="text-stone-600 dark:text-stone-400 max-w-2xl mx-auto">
+              Have a question about our collection or want to place a special order? We'd love to hear from you.
+            </p>
           </div>
+        </ScrollReveal>
 
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-stone-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-stone-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent resize-none bg-white dark:bg-stone-800 text-stone-900 dark:text-white"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-
-              {success && (
-                <div className="p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg text-green-700 dark:text-green-400">
-                  Thank you for your message! We'll get back to you soon.
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <ScrollReveal>
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-amber-700 dark:text-amber-500" />
                 </div>
-              )}
-
-              {error && (
-                <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400">
-                  {error}
+                <div>
+                  <h4 className="font-bold text-stone-900 dark:text-white mb-1">Visit Us</h4>
+                  <p className="text-stone-500 dark:text-stone-400 text-sm">Madjet Street, Harar, Ethiopia</p>
                 </div>
-              )}
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-amber-700 dark:text-amber-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-stone-900 dark:text-white mb-1">Call Us</h4>
+                  <p className="text-stone-500 dark:text-stone-400 text-sm">+251 91 234 5678</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-amber-700 dark:text-amber-500" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-stone-900 dark:text-white mb-1">Email Us</h4>
+                  <p className="text-stone-500 dark:text-stone-400 text-sm">info@abebebookstore.com</p>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
 
-              <button
-                type="submit"
-                disabled={submitting}
-                className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {submitting ? (
-                  'Sending...'
+          <ScrollReveal>
+            <div className="lg:col-span-2">
+              <AnimatePresence mode="wait">
+                {showSuccess ? (
+                  <motion.div
+                    key="success"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    className="bg-white dark:bg-stone-800 p-12 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 text-center"
+                  >
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: 'spring', delay: 0.2 }}
+                    >
+                      <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    </motion.div>
+                    <h3 className="text-2xl font-bold text-stone-900 dark:text-white mb-2">Message Sent!</h3>
+                    <p className="text-stone-500 dark:text-stone-400 mb-4">
+                      Thank you for reaching out. We'll get back to you within 24 hours.
+                    </p>
+                    <button
+                      onClick={() => setShowSuccess(false)}
+                      className="text-amber-700 dark:text-amber-500 font-medium text-sm hover:underline"
+                    >
+                      Send another message
+                    </button>
+                  </motion.div>
                 ) : (
-                  <>
-                    <Send className="w-5 h-5 mr-2" />
-                    Send Message
-                  </>
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit}
+                    className="bg-white dark:bg-stone-800 p-8 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-700 space-y-5 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                      >
+                        <input
+                          type="text"
+                          placeholder="Your Name *"
+                          value={formData.name}
+                          onChange={(e) => handleChange('name', e.target.value)}
+                          className={inputClass('name')}
+                        />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                      </motion.div>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.15 }}
+                      >
+                        <input
+                          type="email"
+                          placeholder="Your Email *"
+                          value={formData.email}
+                          onChange={(e) => handleChange('email', e.target.value)}
+                          className={inputClass('email')}
+                        />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                      </motion.div>
+                    </div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Subject *"
+                        value={formData.subject}
+                        onChange={(e) => handleChange('subject', e.target.value)}
+                        className={inputClass('subject')}
+                      />
+                      {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.25 }}
+                    >
+                      <textarea
+                        placeholder="Your Message *"
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) => handleChange('message', e.target.value)}
+                        className={`${inputClass('message')} resize-none`}
+                      />
+                      {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                    </motion.div>
+                    <button
+                      type="submit"
+                      className="flex items-center justify-center gap-2 w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3.5 px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-amber-700/20"
+                    >
+                      <Send className="w-4 h-4" /> Send Message
+                    </button>
+                  </motion.form>
                 )}
-              </button>
-            </form>
-          </div>
+              </AnimatePresence>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

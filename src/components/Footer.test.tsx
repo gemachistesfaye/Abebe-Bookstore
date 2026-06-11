@@ -13,21 +13,20 @@ describe('Footer', () => {
     expect(screen.getByText('Abebe Bookstore')).toBeInTheDocument();
   });
 
-  it('renders quick links', () => {
+  it('renders category links', () => {
     renderWithRouter(<Footer />);
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('Products')).toBeInTheDocument();
+    expect(screen.getByText('Amharic Literature')).toBeInTheDocument();
+    expect(screen.getByText('English Books')).toBeInTheDocument();
   });
 
-  it('renders developer contact info', () => {
+  it('renders contact info', () => {
     renderWithRouter(<Footer />);
-    expect(screen.getByText('+251 97 660 1074')).toBeInTheDocument();
-    expect(screen.getByText('gemachistesfaye36@gmail.com')).toBeInTheDocument();
+    expect(screen.getByText('+251 91 234 5678')).toBeInTheDocument();
+    expect(screen.getByText('info@abebebookstore.com')).toBeInTheDocument();
   });
 
-  it('renders copyright with current year', () => {
+  it('renders copyright', () => {
     renderWithRouter(<Footer />);
-    const currentYear = new Date().getFullYear();
-    expect(screen.getByText(new RegExp(`${currentYear}.*Abebe Bookstore`))).toBeInTheDocument();
+    expect(screen.getByText(/All rights reserved/)).toBeInTheDocument();
   });
 });

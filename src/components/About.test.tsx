@@ -10,18 +10,18 @@ const renderWithRouter = (component: React.ReactNode) => {
 describe('About', () => {
   it('renders the section heading', () => {
     renderWithRouter(<About />);
-    expect(screen.getByText('About Our Bookstore')).toBeInTheDocument();
+    expect(screen.getByText('About Abebe Bookstore')).toBeInTheDocument();
   });
 
   it('renders the description text', () => {
     renderWithRouter(<About />);
-    expect(screen.getByText(/Serving our community/)).toBeInTheDocument();
+    expect(screen.getByText(/trusted source/)).toBeInTheDocument();
   });
 
-  it('renders three feature cards', () => {
+  it('renders stats counters', () => {
     renderWithRouter(<About />);
-    expect(screen.getByText('Community Focused')).toBeInTheDocument();
-    expect(screen.getByText('Quality Products')).toBeInTheDocument();
-    expect(screen.getByText('Expert Service')).toBeInTheDocument();
+    expect(screen.getByText('Books Available')).toBeInTheDocument();
+    expect(screen.getByText('Years Serving')).toBeInTheDocument();
+    expect(screen.getByText('Categories')).toBeInTheDocument();
   });
 });

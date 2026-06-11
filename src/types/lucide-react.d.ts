@@ -43,4 +43,10 @@ declare module 'lucide-react' {
   export const ArrowUpDown: Icon;
   export const ToggleLeft: Icon;
   export const ToggleRight: Icon;
+  export const BookMarked: Icon;
+  export const CheckCircle: Icon;
+  export const PackageOpen: Icon;
+  export const ArrowUp: Icon;
+  export const Share2: Icon;
+  export const ChevronRight: Icon;
 }

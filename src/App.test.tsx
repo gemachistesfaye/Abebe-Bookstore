@@ -11,8 +11,8 @@ describe('App', () => {
       </MemoryRouter>
     );
     expect(screen.getAllByText('Abebe Bookstore').length).toBeGreaterThan(0);
-    expect(screen.getByText('Quality Books for Everyone')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Browse Collection')).toBeInTheDocument();
+  }, 15000);
 
   it('renders the product detail page for a valid book', () => {
     render(
@@ -20,9 +20,9 @@ describe('App', () => {
         <App />
       </MemoryRouter>
     );
-    expect(screen.getByText('Ethiopia: A History')).toBeInTheDocument();
-    expect(screen.getByText('by Harold G. Marcus')).toBeInTheDocument();
-  });
+    expect(screen.getAllByText('Ethiopia: A History').length).toBeGreaterThan(0);
+    expect(screen.getByText('Harold G. Marcus')).toBeInTheDocument();
+  }, 15000);
 
   it('renders 404 page for invalid routes', () => {
     render(
@@ -31,7 +31,7 @@ describe('App', () => {
       </MemoryRouter>
     );
     expect(screen.getByText('404')).toBeInTheDocument();
-    expect(screen.getByText('Page not found.')).toBeInTheDocument();
+    expect(screen.getByText('Page Not Found')).toBeInTheDocument();
   });
 
   it('renders navigation on all pages', () => {

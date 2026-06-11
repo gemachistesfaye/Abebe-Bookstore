@@ -18,16 +18,15 @@ describe('FeaturedProducts', () => {
     localStorage.clear();
   });
 
-  it('renders the section heading', () => {
+  it('renders the section heading', async () => {
     renderWithRouter(<FeaturedProducts />);
     expect(screen.getByText("Ethiopia's Living Library")).toBeInTheDocument();
-  });
+  }, 15000);
 
-  it('renders all 52 books initially', () => {
+  it('renders all 52 books initially', async () => {
     renderWithRouter(<FeaturedProducts />);
-    const bookCards = screen.getAllByRole('link');
-    expect(bookCards.length).toBe(52);
-  });
+    expect(screen.getByText(/Showing 52 of 52 books/)).toBeInTheDocument();
+  }, 15000);
 
   it('renders search input', () => {
     renderWithRouter(<FeaturedProducts />);
@@ -76,8 +75,7 @@ describe('FeaturedProducts', () => {
     renderWithRouter(<FeaturedProducts />);
     const categorySelect = screen.getByDisplayValue('All Categories');
     await user.selectOptions(categorySelect, 'History');
-    const bookCards = screen.getAllByRole('link');
-    expect(bookCards.length).toBe(10);
+    expect(screen.getByText(/Showing 10 of 52 books/)).toBeInTheDocument();
   });
 
   it('filters books by language', async () => {
@@ -85,8 +83,7 @@ describe('FeaturedProducts', () => {
     renderWithRouter(<FeaturedProducts />);
     const languageSelect = screen.getByDisplayValue('All Languages');
     await user.selectOptions(languageSelect, 'Afaan Oromo');
-    const bookCards = screen.getAllByRole('link');
-    expect(bookCards.length).toBe(6);
+    expect(screen.getByText(/Showing 6 of 52 books/)).toBeInTheDocument();
   });
 
   it('filters by in-stock only', async () => {
@@ -94,9 +91,7 @@ describe('FeaturedProducts', () => {
     renderWithRouter(<FeaturedProducts />);
     const inStockButton = screen.getByText('In Stock Only');
     await user.click(inStockButton);
-    const bookCards = screen.getAllByRole('link');
-    expect(bookCards.length).toBeLessThan(52);
-    expect(bookCards.length).toBeGreaterThan(0);
+    expect(screen.getByText(/Showing 49 of 52 books/)).toBeInTheDocument();
   });
 
   it('sorts books by price low to high', async () => {

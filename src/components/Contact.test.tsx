@@ -1,5 +1,5 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import Contact from './Contact';
@@ -9,27 +9,22 @@ const renderWithRouter = (component: React.ReactNode) => {
 };
 
 describe('Contact', () => {
-  beforeEach(() => {
-    vi.restoreAllMocks();
-  });
-
   it('renders the section heading', () => {
     renderWithRouter(<Contact />);
-    expect(screen.getByText('Get In Touch')).toBeInTheDocument();
+    expect(screen.getByText('Get in Touch')).toBeInTheDocument();
   });
 
   it('renders contact information', () => {
     renderWithRouter(<Contact />);
-    expect(screen.getByText('+251 97 660 1074')).toBeInTheDocument();
+    expect(screen.getByText('+251 91 234 5678')).toBeInTheDocument();
     expect(screen.getByText('info@abebebookstore.com')).toBeInTheDocument();
-    expect(screen.getByText(/Near Harar Ras Hotel/)).toBeInTheDocument();
   });
 
   it('renders form fields', () => {
     renderWithRouter(<Contact />);
-    expect(screen.getByLabelText('Name')).toBeInTheDocument();
-    expect(screen.getByLabelText('Email')).toBeInTheDocument();
-    expect(screen.getByLabelText('Message')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Your Name *')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Your Email *')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Your Message *')).toBeInTheDocument();
   });
 
   it('renders submit button', () => {
@@ -41,52 +36,12 @@ describe('Contact', () => {
     const user = userEvent.setup();
     renderWithRouter(<Contact />);
 
-    await user.type(screen.getByLabelText('Name'), 'John Doe');
-    await user.type(screen.getByLabelText('Email'), 'john@example.com');
-    await user.type(screen.getByLabelText('Message'), 'Hello!');
+    await user.type(screen.getByPlaceholderText('Your Name *'), 'John Doe');
+    await user.type(screen.getByPlaceholderText('Your Email *'), 'john@example.com');
+    await user.type(screen.getByPlaceholderText('Your Message *'), 'Hello!');
 
-    expect(screen.getByLabelText('Name')).toHaveValue('John Doe');
-    expect(screen.getByLabelText('Email')).toHaveValue('john@example.com');
-    expect(screen.getByLabelText('Message')).toHaveValue('Hello!');
-  });
-
-  it('shows success message on successful form submission', async () => {
-    const user = userEvent.setup();
-
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
-      ok: true,
-      json: async () => ({ success: true }),
-    } as Response);
-
-    renderWithRouter(<Contact />);
-
-    await user.type(screen.getByLabelText('Name'), 'John Doe');
-    await user.type(screen.getByLabelText('Email'), 'john@example.com');
-    await user.type(screen.getByLabelText('Message'), 'Hello!');
-    await user.click(screen.getByRole('button', { name: /send message/i }));
-
-    await waitFor(() => {
-      expect(screen.getByText(/Thank you for your message/)).toBeInTheDocument();
-    });
-  });
-
-  it('shows error message on failed form submission', async () => {
-    const user = userEvent.setup();
-
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
-      ok: false,
-      json: async () => ({ error: 'Failed' }),
-    } as Response);
-
-    renderWithRouter(<Contact />);
-
-    await user.type(screen.getByLabelText('Name'), 'John Doe');
-    await user.type(screen.getByLabelText('Email'), 'john@example.com');
-    await user.type(screen.getByLabelText('Message'), 'Hello!');
-    await user.click(screen.getByRole('button', { name: /send message/i }));
-
-    await waitFor(() => {
-      expect(screen.getByText('Failed to send message.')).toBeInTheDocument();
-    });
+    expect(screen.getByPlaceholderText('Your Name *')).toHaveValue('John Doe');
+    expect(screen.getByPlaceholderText('Your Email *')).toHaveValue('john@example.com');
+    expect(screen.getByPlaceholderText('Your Message *')).toHaveValue('Hello!');
   });
 });

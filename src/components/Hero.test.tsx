@@ -13,13 +13,13 @@ describe('Hero', () => {
     expect(screen.getByText('Abebe Bookstore')).toBeInTheDocument();
   });
 
-  it('renders the tagline', () => {
-    renderWithRouter(<Hero />);
-    expect(screen.getByText('Quality Books for Everyone')).toBeInTheDocument();
-  });
-
   it('renders the description', () => {
     renderWithRouter(<Hero />);
     expect(screen.getByText(/Discover a curated collection/)).toBeInTheDocument();
+  });
+
+  it('renders the browse button', () => {
+    renderWithRouter(<Hero />);
+    expect(screen.getByText('Browse Collection')).toBeInTheDocument();
   });
 });
