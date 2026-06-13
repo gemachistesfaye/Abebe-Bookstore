@@ -40,7 +40,7 @@ A modern, responsive bookstore web app for discovering Ethiopian books, cultural
 - **Floating social buttons** — Facebook, Telegram, TikTok, Instagram with animated expand
 - **Mobile menu** — slide-out nav with dark mode toggle and call-to-order button
 - **Scroll to top** — back-to-top button on mobile
-- **Contact form** — send a message via Formspree, or call and reach on Telegram
+- **Contact form** — send a message via Formspree or call and reach on Telegram
 - **FAQ section** — common questions answered in an accordion
 - **Responsive** — works on mobile, tablet and desktop
 
@@ -169,20 +169,6 @@ This is a front-end only application — there is no backend or payment processi
 | Email | [gemachistesfaye36@gmail.com](mailto:gemachistesfaye36@gmail.com) |
 | Telegram | [@gemachisTech](https://t.me/gemachisTech) |
 | GitHub | [gemachistesfaye](https://github.com/gemachistesfaye) |
-
----
-
-## Contributing 🤝
-
-Contributions are welcome! Please read the [Contributing Guide](.github/CONTRIBUTING.md) and [Code of Conduct](.github/CODE_OF_CONDUCT.md) before opening a pull request.
-
-For security vulnerabilities, see the [Security Policy](.github/SECURITY.md).
-
----
-
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
 
 ---
 
